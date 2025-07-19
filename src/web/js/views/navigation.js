@@ -31,8 +31,13 @@ export default Backbone.View.extend({
   },
 
   render: function() {
+    const iconPath = typeof BUILD_TARGET !== 'undefined' && BUILD_TARGET === 'safari'
+      ? 'assets/'
+      : 'resources/';
+
     this.$el.html(this.template({
-      nav: ViewState.get('nav').toJSON()
+      nav: ViewState.get('nav').toJSON(),
+      iconPath
     }));
   },
 

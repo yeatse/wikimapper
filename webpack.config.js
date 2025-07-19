@@ -14,6 +14,9 @@ module.exports = {
   plugins: [
     new webpack.ProvidePlugin({
       browser: 'webextension-polyfill'
+    }),
+    new webpack.DefinePlugin({
+      BUILD_TARGET: JSON.stringify(process.env.BUILD_TARGET || 'chrome')
     })
   ],
   module: {

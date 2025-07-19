@@ -141,7 +141,7 @@ module.exports = function(grunt) {
           },
           {
             src: ['<%= config.src %>/resources/*', '!<%= config.src %>/resources/*.psd'],
-            dest: 'WikiMapper/Shared (Extension)/resources',
+            dest: 'WikiMapper/Shared (Extension)/assets',
             filter: 'isFile',
             flatten: true,
             expand: true
@@ -149,6 +149,13 @@ module.exports = function(grunt) {
           {
             src: '<%= config.nodeModules %>/font-awesome/fonts/*',
             dest: 'WikiMapper/Shared (Extension)/fonts/',
+            filter: 'isFile',
+            flatten: true,
+            expand: true
+          },
+          {
+            src: '<%= config.src %>/chrome/content-script.js',
+            dest: 'WikiMapper/Shared (Extension)/',
             filter: 'isFile',
             flatten: true,
             expand: true
@@ -222,6 +229,14 @@ module.exports = function(grunt) {
       safari: {
         ...require('./webpack.config.js'),
         mode: 'production',
+        plugins: [
+          ...require('./webpack.config.js').plugins.filter(plugin => 
+            !(plugin instanceof require('webpack').DefinePlugin)
+          ),
+          new (require('webpack')).DefinePlugin({
+            BUILD_TARGET: JSON.stringify('safari')
+          })
+        ],
         output: {
           ...require('./webpack.config.js').output,
           path: require('path').resolve(__dirname, 'WikiMapper/Shared (Extension)')

@@ -2,6 +2,10 @@
  * Data storage and access module.
  */
 
+import StorageAdapter from './safari-storage.js';
+
+const storageAdapter = new StorageAdapter();
+
 const Storage = {
 
   /**
@@ -27,28 +31,33 @@ const Storage = {
   },
 
   /**
-   * Record a root node to chrome.storage.local
+   * Record a root node to storage
    * @param page - page object to store
    */
-  recordRoot: function(page) {
+  async recordRoot(page) {
     if (!page || !page.data || !page.data.sessionId) {
       console.error('Invalid page object for recordRoot:', page);
       return;
     }
-    chrome.storage.local.set({ [page.data.sessionId]: page });
+    try {
+      await storageAdapter.set({ [page.data.sessionId]: page });
+    } catch (error) {
+      console.error('WikiMapper: Failed to record root node:', error);
+    }
   },
 
   /**
-   * Record a new child node to an existing tree in chrome.storage.local
+   * Record a new child node to an existing tree in storage
    * @param page - page object to store
    */
-  recordChild: function(page) {
+  async recordChild(page) {
     if (!page || !page.data || !page.data.sessionId) {
       console.error('Invalid page object for recordChild:', page);
       return;
     }
 
-    chrome.storage.local.get({ [page.data.sessionId]: null }, function(result) {
+    try {
+      const result = await storageAdapter.get({ [page.data.sessionId]: null });
       const tree = result[page.data.sessionId];
       if (!tree) {
         console.error('No tree found for session:', page.data.sessionId);
@@ -63,8 +72,10 @@ const Storage = {
       tree.lastNodeIndex = page.id;
       parent.children.push(page);
 
-      chrome.storage.local.set({ [page.data.sessionId]: tree });
-    }.bind(this));
+      await storageAdapter.set({ [page.data.sessionId]: tree });
+    } catch (error) {
+      console.error('WikiMapper: Failed to record child node:', error);
+    }
   },
 
   /**

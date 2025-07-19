@@ -9,8 +9,16 @@ global.chrome = {
       get: jest.fn(),
       set: jest.fn(),
       remove: jest.fn(),
-      clear: jest.fn()
+      clear: jest.fn(),
+      getBytesInUse: jest.fn()
     }
+  }
+};
+
+// Mock browser API for Safari
+global.browser = {
+  runtime: {
+    sendNativeMessage: undefined // Safari native messaging not available in tests
   }
 };
 
@@ -60,18 +68,23 @@ describe('Storage API', () => {
     expect(page.data.url).toBe(commitData.url);
   });
 
-  it('should record root node to chrome.storage.local', () => {
+  it('should record root node to storage', async() => {
     const page = {
       data: {
         sessionId: 'test-session'
       }
     };
 
-    Storage.recordRoot(page);
-    expect(global.chrome.storage.local.set).toHaveBeenCalledWith({ 'test-session': page });
+    // Mock the promise resolution for StorageAdapter
+    global.chrome.storage.local.set.mockImplementation((data, callback) => {
+      if (callback) callback();
+    });
+
+    await Storage.recordRoot(page);
+    expect(global.chrome.storage.local.set).toHaveBeenCalledWith({ 'test-session': page }, expect.any(Function));
   });
 
-  it('should record child node to chrome.storage.local', () => {
+  it('should record child node to storage', async() => {
     const page = {
       id: 2,
       data: {
@@ -89,7 +102,11 @@ describe('Storage API', () => {
       callback({ 'test-session': mockTree });
     });
 
-    Storage.recordChild(page);
+    global.chrome.storage.local.set.mockImplementation((data, callback) => {
+      if (callback) callback();
+    });
+
+    await Storage.recordChild(page);
     expect(global.chrome.storage.local.get).toHaveBeenCalledWith(
       { 'test-session': null },
       expect.any(Function)

@@ -1,8 +1,11 @@
 /**
- * Collection for interfacing with chrome.storage.local.
+ * Collection for interfacing with storage.
  */
 
 import Backbone from 'backbone';
+import StorageAdapter from '../../../chrome/safari-storage.js';
+
+const storageAdapter = new StorageAdapter();
 
 export default Backbone.Collection.extend({
 
@@ -17,33 +20,31 @@ export default Backbone.Collection.extend({
 
   /**
    * Custom Fetch
-   * Retrieves chrome.storage.local and converts it to a Backbone.Collection
+   * Retrieves storage and converts it to a Backbone.Collection
    * @returns {Promise} A promise that resolves when the fetch is complete
    */
-  fetch: function() {
+  fetch: async function() {
     const self = this;
-    return new Promise(function(resolve, reject) {
-      chrome.storage.local.get(null, function(result) {
-        try {
-          const history = [];
-          let session = {};
-          const keys = Object.keys(result);
+    try {
+      const result = await storageAdapter.get(null);
+      const history = [];
+      let session = {};
+      const keys = Object.keys(result).filter(key => !key.startsWith('safari_'));
 
-          for (let i = 0; i < keys.length; i++) {
-            session = {};
-            session.id = keys[i];
-            session.tree = result[keys[i]];
-            history.push(session);
-          }
+      for (let i = 0; i < keys.length; i++) {
+        session = {};
+        session.id = keys[i];
+        session.tree = result[keys[i]];
+        history.push(session);
+      }
 
-          self.parse(history);
-          self.trigger('sync');
-          resolve(self);
-        } catch (error) {
-          reject(error);
-        }
-      });
-    });
+      self.parse(history);
+      self.trigger('sync');
+      return self;
+    } catch (error) {
+      console.error('WikiMapper: Failed to fetch storage:', error);
+      throw error;
+    }
   },
 
   /**
@@ -116,31 +117,35 @@ export default Backbone.Collection.extend({
   },
 
   /**
-   * Remove selected sessions from the collection and from chrome.storage.local.
+   * Remove selected sessions from the collection and from storage.
    * BEWARE: do not modify the collection during the .each() iteration!!!
-   * Doing so breaks the iteration! Instead, remove it from chrome.storage.local and
+   * Doing so breaks the iteration! Instead, remove it from storage and
    * keep a reference to the model in toRemove for bulk removal at the end.
    * @returns {Promise} A promise that resolves when deletion is complete
    */
-  deleteChecked: function() {
+  deleteChecked: async function() {
     const self = this;
     const toRemove = [];
-    const promises = [];
+    const keysToRemove = [];
 
     self.each(function(session) {
       const sessionId = session.get('id');
       if (session.get('checked')) {
         toRemove.push(session);
-        promises.push(new Promise(function(resolve) {
-          chrome.storage.local.remove(sessionId, resolve);
-        }));
+        keysToRemove.push(sessionId);
       }
     });
 
-    return Promise.all(promises).then(function() {
+    try {
+      if (keysToRemove.length > 0) {
+        await storageAdapter.remove(keysToRemove);
+      }
       self.remove(toRemove);
       self.trigger('delete');
-    });
+    } catch (error) {
+      console.error('WikiMapper: Failed to delete sessions:', error);
+      throw error;
+    }
   },
 
   /**

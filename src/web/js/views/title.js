@@ -19,7 +19,13 @@ export default Backbone.View.extend({
   },
 
   render: function() {
-    this.$el.html(this.template({}));
+    const iconPath = typeof BUILD_TARGET !== 'undefined' && BUILD_TARGET === 'safari'
+      ? 'assets/'
+      : 'resources/';
+
+    this.$el.html(this.template({
+      iconPath
+    }));
   }
 
 });

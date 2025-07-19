@@ -31,7 +31,7 @@
 		3814D13A2E2B7CA200CCB9B3 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3814D0F82E2B7CA200CCB9B3 /* SafariWebExtensionHandler.swift */; };
 		3814D1572E2B7CA200CCB9B3 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 3814D14D2E2B7CA200CCB9B3 /* index.html */; };
 		3814D1582E2B7CA200CCB9B3 /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = 3814D14E2E2B7CA200CCB9B3 /* background.js */; };
-		3814D1592E2B7CA200CCB9B3 /* resources in Resources */ = {isa = PBXBuildFile; fileRef = 3814D14F2E2B7CA200CCB9B3 /* resources */; };
+		3814D1592E2B7CA200CCB9B3 /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 3814D14F2E2B7CA200CCB9B3 /* assets */; };
 		3814D15A2E2B7CA200CCB9B3 /* styles in Resources */ = {isa = PBXBuildFile; fileRef = 3814D1502E2B7CA200CCB9B3 /* styles */; };
 		3814D15B2E2B7CA200CCB9B3 /* wikimapper.js.LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3814D1512E2B7CA200CCB9B3 /* wikimapper.js.LICENSE.txt */; };
 		3814D15C2E2B7CA200CCB9B3 /* wikimapper.js in Resources */ = {isa = PBXBuildFile; fileRef = 3814D1522E2B7CA200CCB9B3 /* wikimapper.js */; };
@@ -40,13 +40,15 @@
 		3814D15F2E2B7CA200CCB9B3 /* background.js.LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3814D1562E2B7CA200CCB9B3 /* background.js.LICENSE.txt */; };
 		3814D1602E2B7CA200CCB9B3 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 3814D14D2E2B7CA200CCB9B3 /* index.html */; };
 		3814D1612E2B7CA200CCB9B3 /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = 3814D14E2E2B7CA200CCB9B3 /* background.js */; };
-		3814D1622E2B7CA200CCB9B3 /* resources in Resources */ = {isa = PBXBuildFile; fileRef = 3814D14F2E2B7CA200CCB9B3 /* resources */; };
+		3814D1622E2B7CA200CCB9B3 /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 3814D14F2E2B7CA200CCB9B3 /* assets */; };
 		3814D1632E2B7CA200CCB9B3 /* styles in Resources */ = {isa = PBXBuildFile; fileRef = 3814D1502E2B7CA200CCB9B3 /* styles */; };
 		3814D1642E2B7CA200CCB9B3 /* wikimapper.js.LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3814D1512E2B7CA200CCB9B3 /* wikimapper.js.LICENSE.txt */; };
 		3814D1652E2B7CA200CCB9B3 /* wikimapper.js in Resources */ = {isa = PBXBuildFile; fileRef = 3814D1522E2B7CA200CCB9B3 /* wikimapper.js */; };
 		3814D1662E2B7CA200CCB9B3 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 3814D1532E2B7CA200CCB9B3 /* manifest.json */; };
 		3814D1672E2B7CA200CCB9B3 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 3814D1552E2B7CA200CCB9B3 /* fonts */; };
 		3814D1682E2B7CA200CCB9B3 /* background.js.LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3814D1562E2B7CA200CCB9B3 /* background.js.LICENSE.txt */; };
+		38A463122E2BD45800FD2689 /* content-script.js in Resources */ = {isa = PBXBuildFile; fileRef = 38A463112E2BD45800FD2689 /* content-script.js */; };
+		38A463132E2BD45800FD2689 /* content-script.js in Resources */ = {isa = PBXBuildFile; fileRef = 38A463112E2BD45800FD2689 /* content-script.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,17 +117,18 @@
 		3814D1262E2B7CA200CCB9B3 /* WikiMapper Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "WikiMapper Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3814D12B2E2B7CA200CCB9B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3814D12C2E2B7CA200CCB9B3 /* WikiMapper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WikiMapper.entitlements; sourceTree = "<group>"; };
-		3814D14C2E2B7CA200CCB9B3 /* wikimapper.js.map */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; name = wikimapper.js.map; path = wikimapper.js.map; sourceTree = "<group>"; };
-		3814D14D2E2B7CA200CCB9B3 /* index.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = index.html; path = index.html; sourceTree = "<group>"; };
-		3814D14E2E2B7CA200CCB9B3 /* background.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = background.js; path = background.js; sourceTree = "<group>"; };
-		3814D14F2E2B7CA200CCB9B3 /* resources */ = {isa = PBXFileReference; lastKnownFileType = folder; name = resources; path = resources; sourceTree = "<group>"; };
-		3814D1502E2B7CA200CCB9B3 /* styles */ = {isa = PBXFileReference; lastKnownFileType = folder; name = styles; path = styles; sourceTree = "<group>"; };
-		3814D1512E2B7CA200CCB9B3 /* wikimapper.js.LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = wikimapper.js.LICENSE.txt; path = wikimapper.js.LICENSE.txt; sourceTree = "<group>"; };
-		3814D1522E2B7CA200CCB9B3 /* wikimapper.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = wikimapper.js; path = wikimapper.js; sourceTree = "<group>"; };
-		3814D1532E2B7CA200CCB9B3 /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = manifest.json; sourceTree = "<group>"; };
-		3814D1542E2B7CA200CCB9B3 /* background.js.map */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; name = background.js.map; path = background.js.map; sourceTree = "<group>"; };
-		3814D1552E2B7CA200CCB9B3 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = fonts; path = fonts; sourceTree = "<group>"; };
-		3814D1562E2B7CA200CCB9B3 /* background.js.LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = background.js.LICENSE.txt; path = background.js.LICENSE.txt; sourceTree = "<group>"; };
+		3814D14C2E2B7CA200CCB9B3 /* wikimapper.js.map */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = wikimapper.js.map; sourceTree = "<group>"; };
+		3814D14D2E2B7CA200CCB9B3 /* index.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		3814D14E2E2B7CA200CCB9B3 /* background.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = background.js; sourceTree = "<group>"; };
+		3814D14F2E2B7CA200CCB9B3 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
+		3814D1502E2B7CA200CCB9B3 /* styles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = styles; sourceTree = "<group>"; };
+		3814D1512E2B7CA200CCB9B3 /* wikimapper.js.LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = wikimapper.js.LICENSE.txt; sourceTree = "<group>"; };
+		3814D1522E2B7CA200CCB9B3 /* wikimapper.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = wikimapper.js; sourceTree = "<group>"; };
+		3814D1532E2B7CA200CCB9B3 /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = manifest.json; sourceTree = "<group>"; };
+		3814D1542E2B7CA200CCB9B3 /* background.js.map */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = background.js.map; sourceTree = "<group>"; };
+		3814D1552E2B7CA200CCB9B3 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
+		3814D1562E2B7CA200CCB9B3 /* background.js.LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = background.js.LICENSE.txt; sourceTree = "<group>"; };
+		38A463112E2BD45800FD2689 /* content-script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = "content-script.js"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,10 +263,11 @@
 				3814D14C2E2B7CA200CCB9B3 /* wikimapper.js.map */,
 				3814D14D2E2B7CA200CCB9B3 /* index.html */,
 				3814D14E2E2B7CA200CCB9B3 /* background.js */,
-				3814D14F2E2B7CA200CCB9B3 /* resources */,
+				3814D14F2E2B7CA200CCB9B3 /* assets */,
 				3814D1502E2B7CA200CCB9B3 /* styles */,
 				3814D1512E2B7CA200CCB9B3 /* wikimapper.js.LICENSE.txt */,
 				3814D1522E2B7CA200CCB9B3 /* wikimapper.js */,
+				38A463112E2BD45800FD2689 /* content-script.js */,
 				3814D1532E2B7CA200CCB9B3 /* manifest.json */,
 				3814D1542E2B7CA200CCB9B3 /* background.js.map */,
 				3814D1552E2B7CA200CCB9B3 /* fonts */,
@@ -437,8 +441,9 @@
 				3814D1642E2B7CA200CCB9B3 /* wikimapper.js.LICENSE.txt in Resources */,
 				3814D1662E2B7CA200CCB9B3 /* manifest.json in Resources */,
 				3814D1612E2B7CA200CCB9B3 /* background.js in Resources */,
-				3814D1622E2B7CA200CCB9B3 /* resources in Resources */,
+				3814D1622E2B7CA200CCB9B3 /* assets in Resources */,
 				3814D1632E2B7CA200CCB9B3 /* styles in Resources */,
+				38A463122E2BD45800FD2689 /* content-script.js in Resources */,
 				3814D1602E2B7CA200CCB9B3 /* index.html in Resources */,
 				3814D1652E2B7CA200CCB9B3 /* wikimapper.js in Resources */,
 				3814D1682E2B7CA200CCB9B3 /* background.js.LICENSE.txt in Resources */,
@@ -453,8 +458,9 @@
 				3814D15B2E2B7CA200CCB9B3 /* wikimapper.js.LICENSE.txt in Resources */,
 				3814D15D2E2B7CA200CCB9B3 /* manifest.json in Resources */,
 				3814D1582E2B7CA200CCB9B3 /* background.js in Resources */,
-				3814D1592E2B7CA200CCB9B3 /* resources in Resources */,
+				3814D1592E2B7CA200CCB9B3 /* assets in Resources */,
 				3814D15A2E2B7CA200CCB9B3 /* styles in Resources */,
+				38A463132E2BD45800FD2689 /* content-script.js in Resources */,
 				3814D1572E2B7CA200CCB9B3 /* index.html in Resources */,
 				3814D15C2E2B7CA200CCB9B3 /* wikimapper.js in Resources */,
 				3814D15F2E2B7CA200CCB9B3 /* background.js.LICENSE.txt in Resources */,
@@ -670,6 +676,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L6JP27B8YR;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "WikiMapper Extension";
@@ -700,6 +707,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L6JP27B8YR;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "WikiMapper Extension";
@@ -733,6 +741,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L6JP27B8YR;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (App)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = WikiMapper;
@@ -769,6 +778,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L6JP27B8YR;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (App)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = WikiMapper;
