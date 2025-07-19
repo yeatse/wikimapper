@@ -119,6 +119,41 @@ module.exports = function(grunt) {
             expand: true
           }
         ]
+      },
+      safari: {
+        files: [
+          {
+            src: './manifest.safari.json',
+            dest: 'WikiMapper/Shared (Extension)/',
+            filter: 'isFile',
+            flatten: true,
+            expand: true,
+            rename: function(dest, src) {
+              return dest + 'manifest.json';
+            }
+          },
+          {
+            src: '<%= config.src %>/web/index.html',
+            dest: 'WikiMapper/Shared (Extension)/',
+            filter: 'isFile',
+            flatten: true,
+            expand: true
+          },
+          {
+            src: ['<%= config.src %>/resources/*', '!<%= config.src %>/resources/*.psd'],
+            dest: 'WikiMapper/Shared (Extension)/resources',
+            filter: 'isFile',
+            flatten: true,
+            expand: true
+          },
+          {
+            src: '<%= config.nodeModules %>/font-awesome/fonts/*',
+            dest: 'WikiMapper/Shared (Extension)/fonts/',
+            filter: 'isFile',
+            flatten: true,
+            expand: true
+          }
+        ]
       }
     },
 
@@ -148,6 +183,19 @@ module.exports = function(grunt) {
         files: {
           '<%= config.dist %>/firefox/styles/wikimapper.css': '<%= config.src %>/web/styles/*.less'
         }
+      },
+      safari: {
+        options: {
+          compress: false,
+          sourceMap: true,
+          sourceMapFilename: 'WikiMapper/Shared (Extension)/styles/wikimapper.css.map',
+          sourceMapURL: 'wikimapper.css.map',
+          sourceMapBasepath: 'WikiMapper/Shared (Extension)',
+          javascriptEnabled: true
+        },
+        files: {
+          'WikiMapper/Shared (Extension)/styles/wikimapper.css': '<%= config.src %>/web/styles/*.less'
+        }
       }
     },
 
@@ -169,6 +217,14 @@ module.exports = function(grunt) {
         output: {
           ...require('./webpack.config.js').output,
           path: require('path').resolve(__dirname, 'dist/firefox')
+        }
+      },
+      safari: {
+        ...require('./webpack.config.js'),
+        mode: 'production',
+        output: {
+          ...require('./webpack.config.js').output,
+          path: require('path').resolve(__dirname, 'WikiMapper/Shared (Extension)')
         }
       },
       dev: {
@@ -197,7 +253,8 @@ module.exports = function(grunt) {
   // Browser-specific copy tasks
   grunt.registerTask('copy:all', 'Copy files for all browsers', [
     'copy:chrome',
-    'copy:firefox'
+    'copy:firefox',
+    'copy:safari'
   ]);
 
   // Build tasks
@@ -215,13 +272,22 @@ module.exports = function(grunt) {
     'webpack:firefox'
   ]);
 
+  grunt.registerTask('build:safari', 'Build Safari extension bundle', [
+    'prepare',
+    'copy:safari',
+    'less:safari',
+    'webpack:safari'
+  ]);
+
   grunt.registerTask('build:all', 'Build extension bundle for all browsers', [
     'prepare',
     'copy:all',
     'less:chrome',
     'less:firefox',
+    'less:safari',
     'webpack:chrome',
     'webpack:firefox',
+    'webpack:safari',
     'run:zip'
   ]);
 

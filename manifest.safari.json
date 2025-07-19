@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+
+  "name": "WikiMapper",
+  "description": "WikiMapper - Track and graph your adventures down the Wikipedia rabbit hole.",
+  "version": "3.0.4",
+  "icons": {
+    "19": "resources/wikimapper-19.png",
+    "38": "resources/wikimapper-38.png",
+    "48": "resources/wikimapper-48.png",
+    "128": "resources/wikimapper-128.png"
+  },
+  "author": "Patrick McCarthy",
+  "homepage_url": "http://www.github.com/ptmccarthy/wikimapper",
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "permissions": [
+    "webNavigation",
+    "storage"
+  ],
+
+  "action": {
+    "default_title": "WikiMapper",
+    "default_icon": "resources/wikimapper-38.png"
+  }
+}
