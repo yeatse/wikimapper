@@ -14,18 +14,20 @@ import SafariServices
 /// Guide view for helping users enable Safari extension
 struct SafariExtensionGuideView: View {
     @Environment(\.dismiss) private var dismiss
-    @State private var isExtensionEnabled = false
-    @State private var isCheckingExtension = false
+    @Environment(SafariExtensionMonitor.self) private var extensionMonitor
+    @Environment(\.openURL) private var openURL
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ScrollView {
                 VStack(spacing: 24) {
                     // Header
                     headerSection
                     
+                    #if os(macOS)
                     // Status indicator
                     statusSection
+                    #endif
                     
                     // Instructions
                     instructionsSection
@@ -36,19 +38,19 @@ struct SafariExtensionGuideView: View {
                 .padding()
             }
             .navigationTitle("Safari Extension Setup")
-#if os(iOS)
-            .navigationBarTitleDisplayMode(.large)
-#endif
+#if !os(macOS)
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: toolbarPlacement) {
+                ToolbarItem(placement: .confirmationAction) {
                     Button("Done") {
                         dismiss()
                     }
                 }
             }
+#endif
         }
-        .onAppear {
-            checkExtensionStatus()
+        .task {
+            await extensionMonitor.checkExtensionStatus()
         }
     }
     
@@ -58,11 +60,11 @@ struct SafariExtensionGuideView: View {
         VStack(spacing: 16) {
             Image(systemName: "safari")
                 .font(.system(size: 80))
-                .foregroundColor(.blue)
+                .foregroundStyle(.tint)
             
             Text("Enable WikiMapper Extension")
                 .font(.title)
-                .fontWeight(.bold)
+                .bold()
                 .multilineTextAlignment(.center)
             
             Text("To track your Wikipedia browsing history, you need to enable the WikiMapper extension in Safari")
@@ -76,31 +78,32 @@ struct SafariExtensionGuideView: View {
     
     private var statusSection: some View {
         HStack(spacing: 12) {
-            Image(systemName: isExtensionEnabled ? "checkmark.circle.fill" : "exclamationmark.triangle.fill")
+            Image(systemName: extensionMonitor.isExtensionEnabled ? "checkmark.circle.fill" : "exclamationmark.triangle.fill")
                 .font(.title2)
-                .foregroundColor(isExtensionEnabled ? .green : .orange)
+                .foregroundColor(extensionMonitor.isExtensionEnabled ? .green : .orange)
             
             VStack(alignment: .leading, spacing: 2) {
                 Text("Extension Status")
                     .font(.caption)
                     .foregroundColor(.secondary)
                 
-                Text(isExtensionEnabled ? "Enabled" : "Disabled")
+                Text(extensionMonitor.isExtensionEnabled ? "Enabled" : "Disabled")
                     .font(.headline)
                     .fontWeight(.medium)
-                    .foregroundColor(isExtensionEnabled ? .green : .orange)
+                    .foregroundColor(extensionMonitor.isExtensionEnabled ? .green : .orange)
             }
             
             Spacer()
             
             Button("Recheck") {
-                checkExtensionStatus()
+                Task {
+                    await extensionMonitor.checkExtensionStatus()
+                }
             }
-            .disabled(isCheckingExtension)
+            .disabled(extensionMonitor.isChecking)
         }
         .padding()
-        .background(backgroundColorForPlatform)
-        .clipShape(RoundedRectangle(cornerRadius: 12))
+        .background(.fill.quaternary, in: .rect(cornerRadius: 12))
     }
     
     // MARK: - Instructions Section
@@ -125,25 +128,25 @@ struct SafariExtensionGuideView: View {
             InstructionStep(
                 number: 1,
                 title: "Open Safari Settings",
-                description: "In Safari browser, tap the share button in the bottom right, then select \"Settings\""
+                description: "Open the Settings app and search for \"Safari\""
             )
-            
+
             InstructionStep(
                 number: 2,
                 title: "Find Extensions Option",
-                description: "In the settings page, scroll down to find the \"Extensions\" option"
+                description: "In the Safari settings page, tap \"Extensions\""
             )
-            
+
             InstructionStep(
                 number: 3,
                 title: "Enable WikiMapper",
-                description: "Find WikiMapper in the extensions list and turn on its toggle"
+                description: "Find WikiMapper in the list and turn on the toggle to enable it"
             )
-            
+
             InstructionStep(
                 number: 4,
                 title: "Grant Permissions",
-                description: "Make sure to grant WikiMapper access to Wikipedia websites"
+                description: "Allow WikiMapper to access Wikipedia sites as requested"
             )
         }
     }
@@ -181,16 +184,14 @@ struct SafariExtensionGuideView: View {
     
     private var actionSection: some View {
         VStack(spacing: 12) {
-#if os(macOS)
             Button("Open Safari Extension Preferences") {
-                openSafariExtensionPreferences()
-            }
-            .buttonStyle(.bordered)
-            .controlSize(.large)
+#if os(macOS)
+                Task {
+                    await openSafariExtensionPreferences()
+                }
+#else
+                openURL(URL(string: "App-Prefs:com.apple.mobilesafari&path=WEB_EXTENSIONS")!)
 #endif
-            
-            Button("Finish Setup") {
-                dismiss()
             }
             .buttonStyle(.bordered)
             .controlSize(.large)
@@ -207,48 +208,11 @@ struct SafariExtensionGuideView: View {
 #endif
     }
     
-    private var toolbarPlacement: ToolbarItemPlacement {
-#if os(iOS)
-        return .navigationBarTrailing
-#elseif os(macOS)
-        return .automatic
-#endif
-    }
-    
     // MARK: - Methods
     
-    private func checkExtensionStatus() {
-        isCheckingExtension = true
-        
 #if os(macOS)
-        SFSafariExtensionManager.getStateOfSafariExtension(withIdentifier: "com.ptmccarthy.WikiMapper.Extension") { state, error in
-            DispatchQueue.main.async {
-                self.isExtensionEnabled = state?.isEnabled ?? false
-                self.isCheckingExtension = false
-            }
-        }
-#else
-        // On iOS, we can't directly check extension status
-        // We'll assume it's enabled if we have data
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.isCheckingExtension = false
-            // Check if we have any WikiMapper data
-            let userDefaults = UserDefaults(suiteName: "group.wikimapper.storage") ?? UserDefaults.standard
-            let allKeys = userDefaults.dictionaryRepresentation().keys
-            self.isExtensionEnabled = allKeys.contains { key in
-                key.hasPrefix("wikimapper_")
-            }
-        }
-#endif
-    }
-    
-#if os(macOS)
-    private func openSafariExtensionPreferences() {
-        SFSafariApplication.showPreferencesForExtension(withIdentifier: "com.ptmccarthy.WikiMapper.Extension") { error in
-            if let error = error {
-                print("Error opening Safari preferences: \(error)")
-            }
-        }
+    private func openSafariExtensionPreferences() async {
+        try? await SFSafariApplication.showPreferencesForExtension(withIdentifier: "com.ptmccarthy.WikiMapper.Extension")
     }
 #endif
 }
@@ -258,8 +222,8 @@ struct SafariExtensionGuideView: View {
 /// Individual instruction step view
 struct InstructionStep: View {
     let number: Int
-    let title: String
-    let description: String
+    let title: LocalizedStringKey
+    let description: LocalizedStringKey
     
     var body: some View {
         HStack(alignment: .top, spacing: 12) {
@@ -292,4 +256,5 @@ struct InstructionStep: View {
 
 #Preview {
     SafariExtensionGuideView()
+        .environment(SafariExtensionMonitor())
 }

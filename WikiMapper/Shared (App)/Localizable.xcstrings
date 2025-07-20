@@ -41,22 +41,22 @@
         }
       }
     },
+    "Allow WikiMapper to access Wikipedia sites as requested" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "允许 WikiMapper 按需访问维基百科网站"
+          }
+        }
+      }
+    },
     "Avg Pages" : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "平均页面"
-          }
-        }
-      }
-    },
-    "Avg Pages:" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "平均页面:"
           }
         }
       }
@@ -81,22 +81,12 @@
         }
       }
     },
-    "Browsing Session" : {
+    "Choose a browsing session from the sidebar to view its details" : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "浏览会话"
-          }
-        }
-      }
-    },
-    "Check Extension Status" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "检查扩展状态"
+            "value" : "从侧边栏选择一个浏览会话以查看详细信息"
           }
         }
       }
@@ -107,6 +97,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "清除所有数据"
+          }
+        }
+      }
+    },
+    "Click the \"Extensions\" tab at the top of the preferences window" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "点击偏好设置窗口顶部的“扩展”标签"
           }
         }
       }
@@ -171,6 +171,16 @@
         }
       }
     },
+    "Enable WikiMapper" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "启用 WikiMapper"
+          }
+        }
+      }
+    },
     "Enable WikiMapper Extension" : {
       "localizations" : {
         "zh-Hans" : {
@@ -231,12 +241,22 @@
         }
       }
     },
-    "Finish Setup" : {
+    "Find WikiMapper in the left extensions list and check the enable checkbox" : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "完成设置"
+            "value" : "在左侧扩展列表中找到 WikiMapper 并勾选启用复选框"
+          }
+        }
+      }
+    },
+    "Find WikiMapper in the list and turn on the toggle to enable it" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在列表中找到 WikiMapper，并允许扩展"
           }
         }
       }
@@ -247,6 +267,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "授予权限"
+          }
+        }
+      }
+    },
+    "In Safari menu, select \"Preferences\" or press Cmd+," : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在 Safari 菜单中选择“偏好设置”或按 Cmd+,"
+          }
+        }
+      }
+    },
+    "In the Safari settings page, tap \"Extensions\"" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在 Safari 设置页面，点按“扩展”"
           }
         }
       }
@@ -271,12 +311,12 @@
         }
       }
     },
-    "Loading browsing history..." : {
+    "Make sure to grant the extension access to all websites or specific Wikipedia sites" : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "加载浏览历史..."
+            "value" : "确保授予扩展访问所有网站或特定维基百科网站的权限"
           }
         }
       }
@@ -311,36 +351,6 @@
         }
       }
     },
-    "Open in Safari: %@" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "在 Safari 中打开 %@"
-          }
-        }
-      }
-    },
-    "Open Main Window" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "打开主窗口"
-          }
-        }
-      }
-    },
-    "Open Root Page in Safari" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "在 Safari 中打开根页面"
-          }
-        }
-      }
-    },
     "Open Safari Extension Preferences" : {
       "localizations" : {
         "zh-Hans" : {
@@ -371,6 +381,26 @@
         }
       }
     },
+    "Open the Settings app and search for \"Safari\"" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开“设置”App，并搜索“Safari”"
+          }
+        }
+      }
+    },
+    "Open Wikipedia" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开维基百科"
+          }
+        }
+      }
+    },
     "Pages" : {
       "localizations" : {
         "zh-Hans" : {
@@ -381,32 +411,12 @@
         }
       }
     },
-    "Pages:" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "页面数:"
-          }
-        }
-      }
-    },
     "Path:" : {
       "localizations" : {
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "路径:"
-          }
-        }
-      }
-    },
-    "Quit WikiMapper" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "退出 WikiMapper"
           }
         }
       }
@@ -427,16 +437,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "刷新"
-          }
-        }
-      }
-    },
-    "Refresh Data" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "刷新数据"
           }
         }
       }
@@ -501,6 +501,16 @@
         }
       }
     },
+    "Select a Session" : {
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选择会话"
+          }
+        }
+      }
+    },
     "Select Extensions Tab" : {
       "localizations" : {
         "zh-Hans" : {
@@ -517,16 +527,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "会话数"
-          }
-        }
-      }
-    },
-    "Sessions:" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "会话数:"
           }
         }
       }
@@ -617,16 +617,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "访问时间: %@"
-          }
-        }
-      }
-    },
-    "WikiMapper" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "WikiMapper"
           }
         }
       }

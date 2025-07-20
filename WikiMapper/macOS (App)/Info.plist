@@ -4,5 +4,12 @@
 <dict>
 	<key>SFSafariWebExtensionConverterVersion</key>
 	<string>16.4</string>
+	<key>UIApplicationSceneManifest</key>
+	<dict>
+		<key>UIApplicationSupportsMultipleScenes</key>
+		<false/>
+		<key>UISceneConfigurations</key>
+		<dict/>
+	</dict>
 </dict>
 </plist>

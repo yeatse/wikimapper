@@ -6,10 +6,7 @@
 //
 
 import SwiftUI
-
-#if canImport(SafariServices)
 import SafariServices
-#endif
 
 /// Detailed view for a single WikiMapper browsing session
 struct SessionDetailView: View {
@@ -18,9 +15,9 @@ struct SessionDetailView: View {
     let session: WikiMapperSession
     @State private var expandedNodes: Set<Double> = []
     @State private var selectedNode: WikiMapperNode?
-    @State private var showingSafari = false
-    @State private var safariURL: URL?
     @State private var searchText = ""
+    
+    @Environment(\.openURL) private var openURL
     
     // MARK: - Body
     
@@ -50,22 +47,9 @@ struct SessionDetailView: View {
                 }
             }
         }
-        .navigationTitle("Browsing Session")
-#if os(iOS)
-        .navigationBarTitleDisplayMode(.inline)
-#endif
+        .navigationTitle(Text(session.tree.pageTitle))
         .searchable(text: $searchText, prompt: "Search pages")
         .toolbar(content: toolbarContent)
-        .sheet(isPresented: $showingSafari) {
-            if let url = safariURL {
-                #if canImport(SafariServices) && os(iOS)
-                SafariView(url: url)
-                #else
-                Text("Open in Safari: \(url.absoluteString)")
-                    .padding()
-                #endif
-            }
-        }
         .onAppear {
             // Expand root node by default
             expandedNodes.insert(session.tree.id)
@@ -162,14 +146,6 @@ struct SessionDetailView: View {
 #endif
     }
     
-    private var toolbarPlacement: ToolbarItemPlacement {
-#if os(iOS)
-        return .topBarTrailing
-#elseif os(macOS)
-        return .automatic
-#endif
-    }
-    
     private var filteredNodes: [WikiMapperNode] {
         if searchText.isEmpty {
             return [session.tree]
@@ -182,7 +158,7 @@ struct SessionDetailView: View {
     
     @ToolbarContentBuilder
     private func toolbarContent() -> some ToolbarContent {
-        ToolbarItem(placement: toolbarPlacement) {
+        ToolbarItem {
             Menu {
                 Button("Expand All", systemImage: "arrow.down.right.and.arrow.up.left") {
                     expandAllNodes()
@@ -191,12 +167,8 @@ struct SessionDetailView: View {
                 Button("Collapse All", systemImage: "arrow.up.left.and.arrow.down.right") {
                     collapseAllNodes()
                 }
-                
-                Button("Open Root Page in Safari", systemImage: "safari") {
-                    openInSafari(session.tree.data.url)
-                }
             } label: {
-                Image(systemName: "ellipsis.circle")
+                Image(systemName: "line.3.horizontal.decrease")
             }
         }
     }
@@ -225,8 +197,7 @@ struct SessionDetailView: View {
     
     private func openInSafari(_ urlString: String) {
         guard let url = URL(string: urlString) else { return }
-        safariURL = url
-        showingSafari = true
+        openURL(url)
     }
 }
 
@@ -312,25 +283,10 @@ struct StatisticView: View {
     }
 }
 
-/// Safari web view wrapper
-#if canImport(SafariServices) && os(iOS)
-struct SafariView: UIViewControllerRepresentable {
-    let url: URL
-    
-    func makeUIViewController(context: Context) -> SFSafariViewController {
-        return SFSafariViewController(url: url)
-    }
-    
-    func updateUIViewController(_ uiViewController: SFSafariViewController, context: Context) {
-        // No updates needed
-    }
-}
-#endif
-
 // MARK: - Previews
 
 #Preview {
-    NavigationView {
+    NavigationStack {
         SessionDetailView(session: WikiMapperDataService.sampleData().first!)
     }
 }

@@ -9,27 +9,41 @@ import SwiftUI
 
 @main
 struct WikiMapperApp: App {
-    @StateObject private var dataService = WikiMapperDataService()
-    @StateObject private var extensionMonitor = SafariExtensionMonitor()
+    @State private var dataService = WikiMapperDataService()
+    @State private var extensionMonitor = SafariExtensionMonitor()
+    
+#if os(macOS)
+    @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+#endif
     
     var body: some Scene {
         WindowGroup {
             HistoryListView()
-                .environmentObject(dataService)
-                .environmentObject(extensionMonitor)
+                .environment(dataService)
+                .environment(extensionMonitor)
+        }
+        .defaultSize(width: 800, height: 600)
+        .commands {
+            CommandGroup(after: .saveItem) {
+                Divider()
+                Button("Refresh", systemImage: "arrow.clockwise") {
+                    Task {
+                        await dataService.refresh()
+                        await extensionMonitor.checkExtensionStatus()
+                    }
+                }
+                
+                Button("Clear All Data", systemImage: "trash", role: .destructive) {
+                    dataService.clearAllSessions()
+                }
+            }
         }
 #if os(macOS)
-        .windowResizability(.contentSize)
-        .defaultSize(width: 640, height: 480)
-#endif
-        
-#if os(macOS)
-        MenuBarExtra("WikiMapper", systemImage: "safari") {
-            WikiMapperMenuBarView()
-                .environmentObject(dataService)
-                .environmentObject(extensionMonitor)
+        Settings {
+            SafariExtensionGuideView()
+                .environment(extensionMonitor)
         }
-        .menuBarExtraStyle(.window)
+        .defaultSize(width: 480, height: 600)
 #endif
     }
 }

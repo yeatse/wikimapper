@@ -14,65 +14,54 @@ import SafariServices
 
 /// Service for monitoring Safari extension state
 @MainActor
-class SafariExtensionMonitor: ObservableObject {
-    @Published var isExtensionEnabled = false
-    @Published var isChecking = false
-    @Published var shouldShowBanner = false
-    @Published var lastCheckTime: Date?
+@Observable
+class SafariExtensionMonitor {
+    var isExtensionEnabled = true
+    var isChecking = false
+    var shouldShowBanner = false
+    var lastCheckTime: Date?
     
     private let extensionBundleIdentifier = "com.ptmccarthy.WikiMapper.Extension"
-    private var appStateSubscription: AnyCancellable?
     
     init() {
-        setupAppStateMonitoring()
-        checkExtensionStatus()
+        Task {
+            await checkExtensionStatus()
+        }
     }
     
     // MARK: - Public Methods
     
-    func checkExtensionStatus() {
+    func checkExtensionStatus() async {
         guard !isChecking else { return }
         
         isChecking = true
-        
-#if os(macOS)
-        SFSafariExtensionManager.getStateOfSafariExtension(withIdentifier: extensionBundleIdentifier) { [weak self] state, error in
-            DispatchQueue.main.async {
-                guard let self = self else { return }
-                
-                let wasEnabled = self.isExtensionEnabled
-                self.isExtensionEnabled = state?.isEnabled ?? false
-                self.isChecking = false
-                self.lastCheckTime = Date()
-                
-                // Show banner if extension was disabled or is still disabled after first check
-                if !self.isExtensionEnabled && (wasEnabled || self.lastCheckTime == nil) {
-                    self.shouldShowBanner = true
-                }
-            }
+        defer {
+            isChecking = false
         }
+        
+        let result: Bool
+#if os(macOS)
+        let state = try? await SFSafariExtensionManager.stateOfSafariExtension(withIdentifier: extensionBundleIdentifier)
+        result = state?.isEnabled ?? false
 #else
         // On iOS, check indirectly by looking for WikiMapper data
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
-            guard let self = self else { return }
-            
-            let userDefaults = UserDefaults(suiteName: "group.wikimapper.storage") ?? UserDefaults.standard
-            let allKeys = userDefaults.dictionaryRepresentation().keys
-            let hasData = allKeys.contains { key in
-                key.hasPrefix("wikimapper_")
-            }
-            
-            let wasEnabled = self.isExtensionEnabled
-            self.isExtensionEnabled = hasData
-            self.isChecking = false
-            self.lastCheckTime = Date()
-            
-            // Show banner if no data found (likely extension not enabled)
-            if !hasData && !wasEnabled {
-                self.shouldShowBanner = true
-            }
+        try? await Task.sleep(for: .milliseconds(500))
+
+        let userDefaults = UserDefaults(suiteName: "group.wikimapper.storage") ?? UserDefaults.standard
+        let allKeys = userDefaults.dictionaryRepresentation().keys
+        let hasData = allKeys.contains { key in
+            key.hasPrefix("wikimapper_")
         }
+        result = hasData
 #endif
+        
+        let wasEnabled = isExtensionEnabled
+        isExtensionEnabled = result
+        lastCheckTime = .now
+        
+        if !isExtensionEnabled && (wasEnabled || lastCheckTime == nil) {
+            shouldShowBanner = true
+        }
     }
     
     func dismissBanner() {
@@ -82,44 +71,15 @@ class SafariExtensionMonitor: ObservableObject {
     func forceShowBanner() {
         shouldShowBanner = true
     }
-    
-    // MARK: - Private Methods
-    
-    private func setupAppStateMonitoring() {
-#if os(iOS)
-        // Monitor app lifecycle
-        appStateSubscription = NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)
-            .sink { [weak self] _ in
-                Task { @MainActor in
-                    // Delay slightly to ensure app is fully active
-                    try? await Task.sleep(nanoseconds: 500_000_000) // 0.5 seconds
-                    self?.checkExtensionStatus()
-                }
-            }
-#elseif os(macOS)
-        // Monitor app lifecycle
-        appStateSubscription = NotificationCenter.default.publisher(for: NSApplication.didBecomeActiveNotification)
-            .sink { [weak self] _ in
-                Task { @MainActor in
-                    // Delay slightly to ensure app is fully active
-                    try? await Task.sleep(nanoseconds: 500_000_000) // 0.5 seconds
-                    self?.checkExtensionStatus()
-                }
-            }
-#endif
-    }
-    
-    deinit {
-        appStateSubscription?.cancel()
-    }
 }
 
 // MARK: - Extension Status Banner
 
 /// Non-blocking banner view for extension status
 struct SafariExtensionBanner: View {
-    @ObservedObject var monitor: SafariExtensionMonitor
-    @State private var showingGuide = false
+    @Environment(SafariExtensionMonitor.self) var monitor
+    
+    var action: () -> Void
     
     var body: some View {
         if monitor.shouldShowBanner && !monitor.isExtensionEnabled {
@@ -130,64 +90,41 @@ struct SafariExtensionBanner: View {
     }
     
     private var bannerContent: some View {
-        HStack(spacing: 12) {
-            Image(systemName: "exclamationmark.triangle.fill")
-                .foregroundColor(.orange)
-                .font(.title3)
-            
-            VStack(alignment: .leading, spacing: 2) {
-                Text("Safari Extension Not Enabled")
-                    .font(.subheadline)
-                    .fontWeight(.medium)
+        GroupBox {
+            HStack {
+                Image(systemName: "exclamationmark.triangle.fill")
+                    .foregroundColor(.orange)
+                    .font(.title3)
                 
-                Text("Tap here to learn how to enable the extension to start tracking browsing history")
-                    .font(.caption)
-                    .foregroundColor(.secondary)
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("Safari Extension Not Enabled")
+                        .font(.subheadline.weight(.medium))
+                    
+                    Text("Tap here to learn how to enable the extension to start tracking browsing history")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                        .lineLimit(2)
+                }
+                
+                Spacer()
+                
+                Button {
+                    monitor.dismissBanner()
+                } label: {
+                    Image(systemName: "xmark")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
             }
-            
-            Spacer()
-            
-            Button(action: {
-                monitor.dismissBanner()
-            }) {
-                Image(systemName: "xmark")
-                    .font(.caption)
-                    .foregroundColor(.secondary)
+            .padding(EdgeInsets(top: 8, leading: 12, bottom: 8, trailing: 12))
+            .onTapGesture {
+                action()
             }
         }
-        .padding()
-        .background(bannerBackgroundColor)
-        .overlay(
-            Rectangle()
-                .frame(height: 1)
-                .foregroundColor(Color.gray.opacity(0.3)),
-            alignment: .bottom
-        )
-        .contentShape(Rectangle())
-        .onTapGesture {
-            showingGuide = true
-        }
-        .sheet(isPresented: $showingGuide) {
-            SafariExtensionGuideView()
-        }
-    }
-    
-    private var bannerBackgroundColor: Color {
-#if os(iOS)
-        return Color(.systemBackground)
-#elseif os(macOS)
-        return Color(.controlBackgroundColor)
-#endif
     }
 }
 
-// MARK: - View Extension
-
-extension View {
-    func safariExtensionBanner(_ monitor: SafariExtensionMonitor) -> some View {
-        VStack(spacing: 0) {
-            SafariExtensionBanner(monitor: monitor)
-            self
-        }
-    }
+#Preview {
+    SafariExtensionBanner {}
+        .environment(SafariExtensionMonitor())
 }

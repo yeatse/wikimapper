@@ -11,8 +11,16 @@ import SwiftUI
 struct HistoryListView: View {
     // MARK: - Properties
     
-    @EnvironmentObject private var dataService: WikiMapperDataService
-    @EnvironmentObject private var extensionMonitor: SafariExtensionMonitor
+    @Environment(WikiMapperDataService.self) private var dataService
+    @Environment(SafariExtensionMonitor.self) private var extensionMonitor
+    
+    @Environment(\.scenePhase) private var scenePhase
+    @Environment(\.appearsActive) private var appearsActive
+#if os(macOS)
+    @Environment(\.openSettings) private var openSettings
+#endif
+    @Environment(\.openURL) private var openURL
+    
     @State private var searchText = ""
     @State private var selectedDateRange: DateRange = .all
     @State private var showingSearchResults = false
@@ -22,58 +30,40 @@ struct HistoryListView: View {
     // MARK: - Body
     
     var body: some View {
-        NavigationView {
-            VStack(spacing: 0) {
-                // Header with statistics
-                if !dataService.sessions.isEmpty {
-                    headerView
-                        .padding()
-                        .background(backgroundColorForPlatform)
-                }
-                
-#if os(macOS)
-                // Search field for macOS
-                if !dataService.sessions.isEmpty {
-                    HStack {
-                        Image(systemName: "magnifyingglass")
-                            .foregroundColor(.secondary)
-                        TextField("Search pages or URLs", text: $searchText)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
+        Group {
+            if dataService.sessions.isEmpty {
+                NavigationStack {
+                    if dataService.isLoading {
+                        loadingView
+                    } else {
+                        emptyStateView
                     }
-                    .padding(.horizontal)
-                    .padding(.bottom, 8)
                 }
-#endif
-                
-                // Main content
-                if dataService.isLoading && dataService.sessions.isEmpty {
-                    loadingView
-                } else if dataService.sessions.isEmpty {
-                    emptyStateView
-                } else {
+            } else {
+                NavigationSplitView {
                     sessionListView
+                        .navigationTitle(Text("Browsing History"))
+                        .searchable(text: $searchText, placement: .sidebar, prompt: "Search pages or URLs")
+                        .onChange(of: searchText) { _, newValue in
+                            performSearch(newValue)
+                        }
+                        .refreshable {
+                            await dataService.refresh()
+                        }
+                        .navigationSplitViewColumnWidth(ideal: 240)
+                        .toolbar {
+#if os(iOS)
+                            toolbarContent()
+#endif
+                        }
+                } detail: {
+                    ContentUnavailableView {
+                        Label("Select a Session", systemImage: "sidebar.left")
+                    } description: {
+                        Text("Choose a browsing session from the sidebar to view its details")
+                    }
                 }
             }
-            .navigationTitle("Browsing History")
-#if os(iOS)
-            .navigationBarTitleDisplayMode(.large)
-            .searchable(text: $searchText, prompt: "Search pages or URLs")
-            .onChange(of: searchText) { _, newValue in
-                performSearch(newValue)
-            }
-            .toolbar(content: toolbarContent)
-#elseif os(macOS)
-            // On macOS, we'll handle search differently to avoid toolbar conflicts
-            .onChange(of: searchText) { _, newValue in
-                performSearch(newValue)
-            }
-#endif
-            .refreshable {
-                await dataService.refresh()
-            }
-        }
-        .overlay(alignment: .top) {
-            SafariExtensionBanner(monitor: extensionMonitor)
         }
         .alert("Error", isPresented: .constant(dataService.errorMessage != nil)) {
             Button("OK") {
@@ -87,6 +77,19 @@ struct HistoryListView: View {
         .sheet(isPresented: $showingExtensionGuide) {
             SafariExtensionGuideView()
         }
+#if os(macOS)
+        .onChange(of: appearsActive) { oldValue, newValue in
+            if newValue {
+                refresh()
+            }
+        }
+#else
+        .onChange(of: scenePhase) { oldValue, newValue in
+            if newValue == .active {
+                refresh()
+            }
+        }
+#endif
     }
     
     // MARK: - Header View
@@ -127,13 +130,16 @@ struct HistoryListView: View {
     
     private var sessionListView: some View {
         List {
+            SafariExtensionBanner {
+                showSettings()
+            }
+            
             if showingSearchResults {
                 searchResultsSection
             } else {
                 sessionsSection
             }
         }
-        .listStyle(PlainListStyle())
     }
     
     private var sessionsSection: some View {
@@ -188,65 +194,28 @@ struct HistoryListView: View {
     
     // MARK: - Empty State View
     
-    private var emptyStateView: some View {
-        VStack(spacing: 16) {
-            Image(systemName: "safari")
-                .font(.system(size: 64))
-                .foregroundColor(.secondary)
-            
-            Text("No Browsing History")
-                .font(.title2)
-                .fontWeight(.medium)
-            
+    @ViewBuilder private var emptyStateView: some View {
+        ContentUnavailableView {
+            Label("No Browsing History", systemImage: "safari")
+        } description: {
             Text("Your browsing history will appear here after visiting Wikipedia pages in Safari")
-                .font(.body)
-                .foregroundColor(.secondary)
-                .multilineTextAlignment(.center)
-                .padding(.horizontal)
-            
-            VStack(spacing: 8) {
-                if !extensionMonitor.isExtensionEnabled {
-                    Button("Setup Safari Extension") {
-                        showingExtensionGuide = true
-                    }
-                    .buttonStyle(.bordered)
-                }
-                
-                Button("Refresh") {
-                    Task {
-                        await dataService.refresh()
-                        extensionMonitor.checkExtensionStatus()
-                    }
-                }
-                .buttonStyle(.bordered)
+        } actions: {
+            Button("Setup Safari Extension") {
+                showSettings()
+            }
+            Button("Open Wikipedia") {
+                openURL(URL(string: "https://www.wikipedia.org")!)
             }
         }
-        .padding()
     }
     
     // MARK: - Loading View
     
     private var loadingView: some View {
-        VStack(spacing: 16) {
-            ProgressView()
-                .scaleEffect(1.5)
-            
-            Text("Loading browsing history...")
-                .font(.body)
-                .foregroundColor(.secondary)
-        }
-        .padding()
+        ProgressView()
     }
     
     // MARK: - Computed Properties
-    
-    private var backgroundColorForPlatform: Color {
-#if os(iOS)
-        return Color(.systemGroupedBackground)
-#elseif os(macOS)
-        return Color(.controlBackgroundColor)
-#endif
-    }
     
     private var filteredSessions: [WikiMapperSession] {
         let sessions = dataService.sessions
@@ -271,26 +240,15 @@ struct HistoryListView: View {
     
     @ToolbarContentBuilder
     private func toolbarContent() -> some ToolbarContent {
-        ToolbarItem(placement: toolbarPlacement) {
+        ToolbarItem(placement: .primaryAction) {
             Menu {
                 Button("Safari Extension Settings", systemImage: "safari") {
-                    showingExtensionGuide = true
+                    showSettings()
                 }
-                
-                Divider()
                 
                 Button("Refresh", systemImage: "arrow.clockwise") {
-                    Task {
-                        await dataService.refresh()
-                        extensionMonitor.checkExtensionStatus()
-                    }
+                    refresh()
                 }
-                
-                Button("Check Extension Status", systemImage: "checkmark.shield") {
-                    extensionMonitor.checkExtensionStatus()
-                }
-                
-                Divider()
                 
                 Button("Clear All Data", systemImage: "trash", role: .destructive) {
                     dataService.clearAllSessions()
@@ -301,14 +259,6 @@ struct HistoryListView: View {
         }
     }
     
-    private var toolbarPlacement: ToolbarItemPlacement {
-#if os(iOS)
-        return .topBarTrailing
-#elseif os(macOS)
-        return .automatic
-#endif
-    }
-    
     private func performSearch(_ query: String) {
         if query.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
             showingSearchResults = false
@@ -316,6 +266,21 @@ struct HistoryListView: View {
         } else {
             searchResults = dataService.search(for: query)
             showingSearchResults = true
+        }
+    }
+    
+    private func showSettings() {
+#if os(macOS)
+        openSettings()
+#else
+        showingExtensionGuide = true
+#endif
+    }
+    
+    private func refresh() {
+        Task {
+            await dataService.refresh()
+            await extensionMonitor.checkExtensionStatus()
         }
     }
 }
@@ -425,6 +390,9 @@ enum DateRange: String, CaseIterable {
 
 #Preview {
     HistoryListView()
-        .environmentObject(WikiMapperDataService())
-        .environmentObject(SafariExtensionMonitor())
+        .environment(WikiMapperDataService())
+        .environment(SafariExtensionMonitor())
+#if os(macOS)
+        .frame(width: 640, height: 480)
+#endif
 }

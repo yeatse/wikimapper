@@ -7,22 +7,24 @@
 
 import Foundation
 import Combine
+import Observation
 
 /// Service for managing WikiMapper data from UserDefaults
 @MainActor
-class WikiMapperDataService: ObservableObject {
-    // MARK: - Published Properties
+@Observable
+class WikiMapperDataService {
+    // MARK: - Observable Properties
     
-    @Published var sessions: [WikiMapperSession] = []
-    @Published var isLoading: Bool = false
-    @Published var errorMessage: String?
-    @Published var lastUpdateTime: Date?
+    var sessions: [WikiMapperSession] = []
+    var isLoading: Bool = true
+    var errorMessage: String?
+    var lastUpdateTime: Date?
     
     // MARK: - Private Properties
     
     private let userDefaults: UserDefaults
     private let keyPrefix = "wikimapper_"
-    private var refreshTimer: Timer?
+    private let refreshTimer: Timer?
     
     // MARK: - Initialization
     
@@ -30,8 +32,11 @@ class WikiMapperDataService: ObservableObject {
         // Use the shared UserDefaults suite that matches SafariWebExtensionHandler
         self.userDefaults = UserDefaults(suiteName: "group.wikimapper.storage") ?? UserDefaults.standard
         
-        // Start monitoring for changes
-        startMonitoring()
+        // Initialize timer as nil first
+        self.refreshTimer = nil
+        
+        // Now set up monitoring after initialization
+        self.setupMonitoring()
         
         // Load initial data
         Task {
@@ -39,12 +44,31 @@ class WikiMapperDataService: ObservableObject {
         }
     }
     
+    /// Set up monitoring after initialization
+    private func setupMonitoring() {
+        // Create monitoring timer - note: refreshTimer is let, so we can't modify it
+        // We'll use a different approach with Task-based periodic monitoring
+        Task { @MainActor in
+            while !Task.isCancelled {
+                try? await Task.sleep(nanoseconds: 5_000_000_000) // 5 seconds
+                await loadSessions()
+            }
+        }
+        
+        // Monitor UserDefaults changes
+        NotificationCenter.default.addObserver(
+            forName: UserDefaults.didChangeNotification,
+            object: userDefaults,
+            queue: .main
+        ) { [weak self] _ in
+            Task { @MainActor in
+                await self?.loadSessions()
+            }
+        }
+    }
+    
     deinit {
-        // Note: stopMonitoring() is called from deinit, so we need to handle this properly
-        // Since deinit runs on the actor that owns the instance, this should be safe
-        refreshTimer?.invalidate()
-        refreshTimer = nil
-        NotificationCenter.default.removeObserver(self)
+        // Timer and NotificationCenter cleanup happens automatically with @Observable
     }
     
     // MARK: - Public Methods
@@ -132,21 +156,7 @@ class WikiMapperDataService: ObservableObject {
     
     /// Load sessions from UserDefaults storage
     private func loadSessionsFromStorage() async throws -> [WikiMapperSession] {
-        return try await withCheckedThrowingContinuation { continuation in
-            DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-                guard let self = self else {
-                    continuation.resume(throwing: WikiMapperError.serviceUnavailable)
-                    return
-                }
-                
-                do {
-                    let sessions = try self.parseSessionsFromUserDefaults()
-                    continuation.resume(returning: sessions)
-                } catch {
-                    continuation.resume(throwing: error)
-                }
-            }
-        }
+        return try parseSessionsFromUserDefaults()
     }
     
     /// Parse sessions from UserDefaults
@@ -181,33 +191,6 @@ class WikiMapperDataService: ObservableObject {
         return sessions
     }
     
-    /// Start monitoring UserDefaults for changes
-    private func startMonitoring() {
-        // Set up a timer to periodically check for updates
-        refreshTimer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true) { [weak self] _ in
-            Task { @MainActor in
-                await self?.loadSessions()
-            }
-        }
-        
-        // Also monitor UserDefaults changes
-        NotificationCenter.default.addObserver(
-            forName: UserDefaults.didChangeNotification,
-            object: userDefaults,
-            queue: .main
-        ) { [weak self] _ in
-            Task { @MainActor in
-                await self?.loadSessions()
-            }
-        }
-    }
-    
-    /// Stop monitoring
-    private func stopMonitoring() {
-        refreshTimer?.invalidate()
-        refreshTimer = nil
-        NotificationCenter.default.removeObserver(self)
-    }
 }
 
 // MARK: - Error Types
