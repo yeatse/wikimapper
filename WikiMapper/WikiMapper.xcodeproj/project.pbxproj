@@ -7,26 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3814D1012E2B7CA200CCB9B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3814D1002E2B7CA200CCB9B3 /* AppDelegate.swift */; };
-		3814D1032E2B7CA200CCB9B3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3814D1022E2B7CA200CCB9B3 /* SceneDelegate.swift */; };
-		3814D1062E2B7CA200CCB9B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3814D1042E2B7CA200CCB9B3 /* LaunchScreen.storyboard */; };
-		3814D1092E2B7CA200CCB9B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3814D1072E2B7CA200CCB9B3 /* Main.storyboard */; };
-		3814D1122E2B7CA200CCB9B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3814D1112E2B7CA200CCB9B3 /* AppDelegate.swift */; };
-		3814D1152E2B7CA200CCB9B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3814D1132E2B7CA200CCB9B3 /* Main.storyboard */; };
 		3814D11D2E2B7CA200CCB9B3 /* WikiMapper Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 3814D11C2E2B7CA200CCB9B3 /* WikiMapper Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		3814D1272E2B7CA200CCB9B3 /* WikiMapper Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 3814D1262E2B7CA200CCB9B3 /* WikiMapper Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		3814D12D2E2B7CA200CCB9B3 /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = 3814D0F02E2B7CA000CCB9B3 /* Main.html */; };
-		3814D12E2E2B7CA200CCB9B3 /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = 3814D0F02E2B7CA000CCB9B3 /* Main.html */; };
-		3814D12F2E2B7CA200CCB9B3 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3814D0F22E2B7CA000CCB9B3 /* Icon.png */; };
-		3814D1302E2B7CA200CCB9B3 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3814D0F22E2B7CA000CCB9B3 /* Icon.png */; };
-		3814D1312E2B7CA200CCB9B3 /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = 3814D0F32E2B7CA000CCB9B3 /* Style.css */; };
-		3814D1322E2B7CA200CCB9B3 /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = 3814D0F32E2B7CA000CCB9B3 /* Style.css */; };
-		3814D1332E2B7CA200CCB9B3 /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = 3814D0F42E2B7CA000CCB9B3 /* Script.js */; };
-		3814D1342E2B7CA200CCB9B3 /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = 3814D0F42E2B7CA000CCB9B3 /* Script.js */; };
-		3814D1352E2B7CA200CCB9B3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3814D0F52E2B7CA000CCB9B3 /* ViewController.swift */; };
-		3814D1362E2B7CA200CCB9B3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3814D0F52E2B7CA000CCB9B3 /* ViewController.swift */; };
-		3814D1372E2B7CA200CCB9B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3814D0F62E2B7CA200CCB9B3 /* Assets.xcassets */; };
-		3814D1382E2B7CA200CCB9B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3814D0F62E2B7CA200CCB9B3 /* Assets.xcassets */; };
 		3814D1392E2B7CA200CCB9B3 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3814D0F82E2B7CA200CCB9B3 /* SafariWebExtensionHandler.swift */; };
 		3814D13A2E2B7CA200CCB9B3 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3814D0F82E2B7CA200CCB9B3 /* SafariWebExtensionHandler.swift */; };
 		3814D1572E2B7CA200CCB9B3 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 3814D14D2E2B7CA200CCB9B3 /* index.html */; };
@@ -94,29 +76,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3814D0F12E2B7CA000CCB9B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = Base.lproj/Main.html; sourceTree = "<group>"; };
-		3814D0F22E2B7CA000CCB9B3 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		3814D0F32E2B7CA000CCB9B3 /* Style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
-		3814D0F42E2B7CA000CCB9B3 /* Script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Script.js; sourceTree = "<group>"; };
-		3814D0F52E2B7CA000CCB9B3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		3814D0F62E2B7CA200CCB9B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3814D0F82E2B7CA200CCB9B3 /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
 		3814D0FD2E2B7CA200CCB9B3 /* WikiMapper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WikiMapper.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		3814D1002E2B7CA200CCB9B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3814D1022E2B7CA200CCB9B3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3814D1052E2B7CA200CCB9B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		3814D1082E2B7CA200CCB9B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		3814D10A2E2B7CA200CCB9B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3814D10F2E2B7CA200CCB9B3 /* WikiMapper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WikiMapper.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		3814D1112E2B7CA200CCB9B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3814D1142E2B7CA200CCB9B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		3814D1162E2B7CA200CCB9B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3814D1172E2B7CA200CCB9B3 /* WikiMapper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WikiMapper.entitlements; sourceTree = "<group>"; };
 		3814D11C2E2B7CA200CCB9B3 /* WikiMapper Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "WikiMapper Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3814D1212E2B7CA200CCB9B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3814D1262E2B7CA200CCB9B3 /* WikiMapper Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "WikiMapper Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3814D12B2E2B7CA200CCB9B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3814D12C2E2B7CA200CCB9B3 /* WikiMapper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WikiMapper.entitlements; sourceTree = "<group>"; };
 		3814D14C2E2B7CA200CCB9B3 /* wikimapper.js.map */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = wikimapper.js.map; sourceTree = "<group>"; };
 		3814D14D2E2B7CA200CCB9B3 /* index.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		3814D14E2E2B7CA200CCB9B3 /* background.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = background.js; sourceTree = "<group>"; };
@@ -130,6 +94,47 @@
 		3814D1562E2B7CA200CCB9B3 /* background.js.LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = background.js.LICENSE.txt; sourceTree = "<group>"; };
 		38A463112E2BD45800FD2689 /* content-script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = "content-script.js"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		38A464572E2CB33400FD2689 /* Exceptions for "iOS (App)" folder in "WikiMapper (iOS)" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 3814D0FC2E2B7CA200CCB9B3 /* WikiMapper (iOS) */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		38A4641B2E2C960700FD2689 /* Shared (App) */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Shared (App)";
+			sourceTree = "<group>";
+		};
+		38A464512E2CB33400FD2689 /* iOS (App) */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				38A464572E2CB33400FD2689 /* Exceptions for "iOS (App)" folder in "WikiMapper (iOS)" target */,
+			);
+			path = "iOS (App)";
+			sourceTree = "<group>";
+		};
+		38A4645D2E2CB33800FD2689 /* macOS (App) */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "macOS (App)";
+			sourceTree = "<group>";
+		};
+		38A464622E2CB34200FD2689 /* iOS (Extension) */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "iOS (Extension)";
+			sourceTree = "<group>";
+		};
+		38A464652E2CB34400FD2689 /* macOS (Extension) */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "macOS (Extension)";
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		3814D0FA2E2B7CA200CCB9B3 /* Frameworks */ = {
@@ -166,35 +171,14 @@
 		3814D0E92E2B7CA000CCB9B3 = {
 			isa = PBXGroup;
 			children = (
-				3814D0EE2E2B7CA000CCB9B3 /* Shared (App) */,
+				38A4641B2E2C960700FD2689 /* Shared (App) */,
 				3814D0F72E2B7CA200CCB9B3 /* Shared (Extension) */,
-				3814D0FF2E2B7CA200CCB9B3 /* iOS (App) */,
-				3814D1102E2B7CA200CCB9B3 /* macOS (App) */,
-				3814D1202E2B7CA200CCB9B3 /* iOS (Extension) */,
-				3814D12A2E2B7CA200CCB9B3 /* macOS (Extension) */,
+				38A464512E2CB33400FD2689 /* iOS (App) */,
+				38A4645D2E2CB33800FD2689 /* macOS (App) */,
+				38A464622E2CB34200FD2689 /* iOS (Extension) */,
+				38A464652E2CB34400FD2689 /* macOS (Extension) */,
 				3814D0FE2E2B7CA200CCB9B3 /* Products */,
 			);
-			sourceTree = "<group>";
-		};
-		3814D0EE2E2B7CA000CCB9B3 /* Shared (App) */ = {
-			isa = PBXGroup;
-			children = (
-				3814D0F52E2B7CA000CCB9B3 /* ViewController.swift */,
-				3814D0F62E2B7CA200CCB9B3 /* Assets.xcassets */,
-				3814D0EF2E2B7CA000CCB9B3 /* Resources */,
-			);
-			path = "Shared (App)";
-			sourceTree = "<group>";
-		};
-		3814D0EF2E2B7CA000CCB9B3 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				3814D0F02E2B7CA000CCB9B3 /* Main.html */,
-				3814D0F22E2B7CA000CCB9B3 /* Icon.png */,
-				3814D0F32E2B7CA000CCB9B3 /* Style.css */,
-				3814D0F42E2B7CA000CCB9B3 /* Script.js */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		3814D0F72E2B7CA200CCB9B3 /* Shared (Extension) */ = {
@@ -215,46 +199,6 @@
 				3814D1262E2B7CA200CCB9B3 /* WikiMapper Extension.appex */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		3814D0FF2E2B7CA200CCB9B3 /* iOS (App) */ = {
-			isa = PBXGroup;
-			children = (
-				3814D1002E2B7CA200CCB9B3 /* AppDelegate.swift */,
-				3814D1022E2B7CA200CCB9B3 /* SceneDelegate.swift */,
-				3814D1042E2B7CA200CCB9B3 /* LaunchScreen.storyboard */,
-				3814D1072E2B7CA200CCB9B3 /* Main.storyboard */,
-				3814D10A2E2B7CA200CCB9B3 /* Info.plist */,
-			);
-			path = "iOS (App)";
-			sourceTree = "<group>";
-		};
-		3814D1102E2B7CA200CCB9B3 /* macOS (App) */ = {
-			isa = PBXGroup;
-			children = (
-				3814D1112E2B7CA200CCB9B3 /* AppDelegate.swift */,
-				3814D1132E2B7CA200CCB9B3 /* Main.storyboard */,
-				3814D1162E2B7CA200CCB9B3 /* Info.plist */,
-				3814D1172E2B7CA200CCB9B3 /* WikiMapper.entitlements */,
-			);
-			path = "macOS (App)";
-			sourceTree = "<group>";
-		};
-		3814D1202E2B7CA200CCB9B3 /* iOS (Extension) */ = {
-			isa = PBXGroup;
-			children = (
-				3814D1212E2B7CA200CCB9B3 /* Info.plist */,
-			);
-			path = "iOS (Extension)";
-			sourceTree = "<group>";
-		};
-		3814D12A2E2B7CA200CCB9B3 /* macOS (Extension) */ = {
-			isa = PBXGroup;
-			children = (
-				3814D12B2E2B7CA200CCB9B3 /* Info.plist */,
-				3814D12C2E2B7CA200CCB9B3 /* WikiMapper.entitlements */,
-			);
-			path = "macOS (Extension)";
 			sourceTree = "<group>";
 		};
 		3814D14B2E2B7CA200CCB9B3 /* Resources */ = {
@@ -294,6 +238,10 @@
 			dependencies = (
 				3814D11F2E2B7CA200CCB9B3 /* PBXTargetDependency */,
 			);
+			fileSystemSynchronizedGroups = (
+				38A4641B2E2C960700FD2689 /* Shared (App) */,
+				38A464512E2CB33400FD2689 /* iOS (App) */,
+			);
 			name = "WikiMapper (iOS)";
 			packageProductDependencies = (
 			);
@@ -314,6 +262,9 @@
 			);
 			dependencies = (
 				3814D1292E2B7CA200CCB9B3 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				38A4641B2E2C960700FD2689 /* Shared (App) */,
 			);
 			name = "WikiMapper (macOS)";
 			packageProductDependencies = (
@@ -390,6 +341,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 3814D0E92E2B7CA000CCB9B3;
 			minimizedProjectReferenceProxies = 1;
@@ -411,13 +363,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3814D12F2E2B7CA200CCB9B3 /* Icon.png in Resources */,
-				3814D1062E2B7CA200CCB9B3 /* LaunchScreen.storyboard in Resources */,
-				3814D12D2E2B7CA200CCB9B3 /* Main.html in Resources */,
-				3814D1332E2B7CA200CCB9B3 /* Script.js in Resources */,
-				3814D1372E2B7CA200CCB9B3 /* Assets.xcassets in Resources */,
-				3814D1092E2B7CA200CCB9B3 /* Main.storyboard in Resources */,
-				3814D1312E2B7CA200CCB9B3 /* Style.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,12 +370,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3814D1302E2B7CA200CCB9B3 /* Icon.png in Resources */,
-				3814D1322E2B7CA200CCB9B3 /* Style.css in Resources */,
-				3814D1152E2B7CA200CCB9B3 /* Main.storyboard in Resources */,
-				3814D1342E2B7CA200CCB9B3 /* Script.js in Resources */,
-				3814D1382E2B7CA200CCB9B3 /* Assets.xcassets in Resources */,
-				3814D12E2E2B7CA200CCB9B3 /* Main.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,9 +414,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3814D1352E2B7CA200CCB9B3 /* ViewController.swift in Sources */,
-				3814D1012E2B7CA200CCB9B3 /* AppDelegate.swift in Sources */,
-				3814D1032E2B7CA200CCB9B3 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,8 +421,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3814D1362E2B7CA200CCB9B3 /* ViewController.swift in Sources */,
-				3814D1122E2B7CA200CCB9B3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,41 +454,6 @@
 			targetProxy = 3814D1282E2B7CA200CCB9B3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		3814D0F02E2B7CA000CCB9B3 /* Main.html */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3814D0F12E2B7CA000CCB9B3 /* Base */,
-			);
-			name = Main.html;
-			sourceTree = "<group>";
-		};
-		3814D1042E2B7CA200CCB9B3 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3814D1052E2B7CA200CCB9B3 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		3814D1072E2B7CA200CCB9B3 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3814D1082E2B7CA200CCB9B3 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		3814D1132E2B7CA200CCB9B3 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3814D1142E2B7CA200CCB9B3 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		3814D13B2E2B7CA200CCB9B3 /* Debug */ = {
@@ -614,6 +513,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -668,12 +568,14 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 			};
 			name = Release;
 		};
 		3814D13E2E2B7CA200CCB9B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "iOS (Extension)/WikiMapper Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = L6JP27B8YR;
@@ -681,7 +583,7 @@
 				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "WikiMapper Extension";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -705,6 +607,7 @@
 		3814D13F2E2B7CA200CCB9B3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "iOS (Extension)/WikiMapper Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = L6JP27B8YR;
@@ -712,7 +615,7 @@
 				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "WikiMapper Extension";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -739,18 +642,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "iOS (App)/WikiMapper.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = L6JP27B8YR;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (App)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = WikiMapper;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -776,18 +682,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "iOS (App)/WikiMapper.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = L6JP27B8YR;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS (App)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = WikiMapper;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -815,6 +724,7 @@
 				CODE_SIGN_ENTITLEMENTS = "macOS (Extension)/WikiMapper.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L6JP27B8YR;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
@@ -825,7 +735,7 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -833,6 +743,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ptmccarthy.WikiMapper.Extension;
 				PRODUCT_NAME = "WikiMapper Extension";
+				REGISTER_APP_GROUPS = YES;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -846,6 +757,7 @@
 				CODE_SIGN_ENTITLEMENTS = "macOS (Extension)/WikiMapper.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L6JP27B8YR;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
@@ -856,7 +768,7 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -864,6 +776,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ptmccarthy.WikiMapper.Extension;
 				PRODUCT_NAME = "WikiMapper Extension";
+				REGISTER_APP_GROUPS = YES;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -879,17 +792,20 @@
 				CODE_SIGN_ENTITLEMENTS = "macOS (App)/WikiMapper.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L6JP27B8YR;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "macOS (App)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = WikiMapper;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -914,17 +830,20 @@
 				CODE_SIGN_ENTITLEMENTS = "macOS (App)/WikiMapper.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = L6JP27B8YR;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "macOS (App)/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = WikiMapper;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = (
 					"-framework",
