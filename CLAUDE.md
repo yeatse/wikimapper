@@ -17,6 +17,8 @@ WikiMapper is a browser extension for Chrome and Firefox that tracks and visuali
 - `npm run test` - Run Jest tests
 - `npm run test:watch` - Run tests in watch mode
 - `npm run test:coverage` - Run tests with coverage report
+- `xcodebuild -scheme "WikiMapper (macOS)" -configuration Debug build` - Compile macOS version
+- `xcodebuild -scheme "WikiMapper (iOS)" -configuration Debug build` - Compile iOS version
 
 ### Installation for Testing
 1. `npm install`

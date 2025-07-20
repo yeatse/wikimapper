@@ -16,6 +16,7 @@ struct SessionDetailView: View {
     @State private var expandedNodes: Set<Double> = []
     @State private var selectedNode: WikiMapperNode?
     @State private var searchText = ""
+    @State private var visualizationMode: VisualizationMode = .tree
     
     @Environment(\.openURL) private var openURL
     
@@ -28,10 +29,58 @@ struct SessionDetailView: View {
                 .padding()
                 .background(backgroundColorForPlatform)
             
-            // Tree view
-            if filteredNodes.isEmpty && !searchText.isEmpty {
-                searchEmptyStateView
-            } else {
+            // Content view based on visualization mode
+            Group {
+                switch visualizationMode {
+                case .tree:
+                    treeVisualizationView
+                case .graph:
+                    graphVisualizationView
+                }
+            }
+        }
+        .navigationTitle(Text(session.tree.pageTitle))
+        .searchable(text: $searchText, prompt: "Search pages")
+        .toolbar(content: toolbarContent)
+        .onAppear {
+            // Expand root node by default
+            expandedNodes.insert(session.tree.id)
+        }
+    }
+    
+    // MARK: - Visualization Mode
+    
+    enum VisualizationMode: CaseIterable {
+        case tree
+        case graph
+        
+        var displayName: String {
+            switch self {
+            case .tree: return "Tree"
+            case .graph: return "Graph"
+            }
+        }
+        
+        var iconName: String {
+            switch self {
+            case .tree: return "list.bullet.indent"
+            case .graph: return "point.3.connected.trianglepath.dotted"
+            }
+        }
+    }
+    
+    // MARK: - Tree Visualization View
+    
+    @ViewBuilder
+    private var treeVisualizationView: some View {
+        if filteredNodes.isEmpty && !searchText.isEmpty {
+            searchEmptyStateView
+        } else {
+            VStack(spacing: 0) {
+                // Tree controls header
+                treeControlsHeader
+                
+                // Tree content
                 ScrollView {
                     LazyVStack(alignment: .leading, spacing: 0) {
                         TreeNodeView(
@@ -47,12 +96,72 @@ struct SessionDetailView: View {
                 }
             }
         }
-        .navigationTitle(Text(session.tree.pageTitle))
-        .searchable(text: $searchText, prompt: "Search pages")
-        .toolbar(content: toolbarContent)
-        .onAppear {
-            // Expand root node by default
-            expandedNodes.insert(session.tree.id)
+    }
+    
+    // MARK: - Tree Controls Header
+    
+    private var treeControlsHeader: some View {
+        HStack {
+            Text("Tree View")
+                .font(.headline)
+                .foregroundColor(.primary)
+            
+            Spacer()
+            
+            HStack(spacing: 8) {
+                Button(action: expandAllNodes) {
+                    HStack(spacing: 4) {
+                        Image(systemName: "arrow.down.right.and.arrow.up.left")
+                            .font(.caption)
+                        Text("Expand All")
+                            .font(.caption)
+                    }
+                    .padding(.horizontal, 8)
+                    .padding(.vertical, 4)
+                    .background(.blue.opacity(0.1))
+                    .foregroundColor(.blue)
+                    .clipShape(Capsule())
+                }
+                .buttonStyle(.plain)
+                
+                Button(action: collapseAllNodes) {
+                    HStack(spacing: 4) {
+                        Image(systemName: "arrow.up.left.and.arrow.down.right")
+                            .font(.caption)
+                        Text("Collapse All")
+                            .font(.caption)
+                    }
+                    .padding(.horizontal, 8)
+                    .padding(.vertical, 4)
+                    .background(.orange.opacity(0.1))
+                    .foregroundColor(.orange)
+                    .clipShape(Capsule())
+                }
+                .buttonStyle(.plain)
+            }
+        }
+        .padding(.horizontal)
+        .padding(.vertical, 8)
+        .background(backgroundColorForPlatform)
+        .overlay(
+            Rectangle()
+                .frame(height: 0.5)
+                .foregroundColor(Color.gray.opacity(0.3)),
+            alignment: .bottom
+        )
+    }
+    
+    // MARK: - Graph Visualization View
+    
+    @ViewBuilder
+    private var graphVisualizationView: some View {
+        if filteredNodes.isEmpty && !searchText.isEmpty {
+            searchEmptyStateView
+        } else {
+            GrapeSessionVisualizationView(
+                session: session,
+                searchText: searchText
+            )
         }
     }
     
@@ -159,17 +268,15 @@ struct SessionDetailView: View {
     @ToolbarContentBuilder
     private func toolbarContent() -> some ToolbarContent {
         ToolbarItem {
-            Menu {
-                Button("Expand All", systemImage: "arrow.down.right.and.arrow.up.left") {
-                    expandAllNodes()
+            // Visualization mode picker
+            Picker("Visualization Mode", selection: $visualizationMode) {
+                ForEach(VisualizationMode.allCases, id: \.self) { mode in
+                    Label(mode.displayName, systemImage: mode.iconName)
+                        .tag(mode)
                 }
-                
-                Button("Collapse All", systemImage: "arrow.up.left.and.arrow.down.right") {
-                    collapseAllNodes()
-                }
-            } label: {
-                Image(systemName: "line.3.horizontal.decrease")
             }
+            .pickerStyle(.segmented)
+            .frame(width: 120)
         }
     }
     

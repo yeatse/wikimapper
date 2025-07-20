@@ -81,6 +81,9 @@
         }
       }
     },
+    "Building Graph Visualization" : {
+
+    },
     "Choose a browsing session from the sidebar to view its details" : {
       "localizations" : {
         "zh-Hans" : {
@@ -140,6 +143,9 @@
           }
         }
       }
+    },
+    "Converting session data to interactive graph..." : {
+
     },
     "Disabled" : {
       "localizations" : {
@@ -340,6 +346,9 @@
           }
         }
       }
+    },
+    "Open" : {
+
     },
     "Open Safari Extension Preferences" : {
       "localizations" : {
@@ -591,6 +600,9 @@
         }
       }
     },
+    "Tree View" : {
+
+    },
     "Try using different search terms" : {
       "localizations" : {
         "zh-Hans" : {
@@ -601,6 +613,9 @@
         }
       }
     },
+    "URL" : {
+
+    },
     "Visited: %@" : {
       "localizations" : {
         "zh-Hans" : {
@@ -610,6 +625,9 @@
           }
         }
       }
+    },
+    "Visualization Mode" : {
+
     },
     "Your browsing history will appear here after visiting Wikipedia pages in Safari" : {
       "localizations" : {

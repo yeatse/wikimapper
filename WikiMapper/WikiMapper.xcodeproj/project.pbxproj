@@ -29,6 +29,8 @@
 		3814D1662E2B7CA200CCB9B3 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 3814D1532E2B7CA200CCB9B3 /* manifest.json */; };
 		3814D1672E2B7CA200CCB9B3 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 3814D1552E2B7CA200CCB9B3 /* fonts */; };
 		3814D1682E2B7CA200CCB9B3 /* background.js.LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3814D1562E2B7CA200CCB9B3 /* background.js.LICENSE.txt */; };
+		38820ACE2E2D50FB0069D429 /* Grape in Frameworks */ = {isa = PBXBuildFile; productRef = 38820ACD2E2D50FB0069D429 /* Grape */; };
+		38820AD12E2D510A0069D429 /* Grape in Frameworks */ = {isa = PBXBuildFile; productRef = 38820AD02E2D510A0069D429 /* Grape */; };
 		38A463122E2BD45800FD2689 /* content-script.js in Resources */ = {isa = PBXBuildFile; fileRef = 38A463112E2BD45800FD2689 /* content-script.js */; };
 		38A463132E2BD45800FD2689 /* content-script.js in Resources */ = {isa = PBXBuildFile; fileRef = 38A463112E2BD45800FD2689 /* content-script.js */; };
 /* End PBXBuildFile section */
@@ -151,6 +153,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38820ACE2E2D50FB0069D429 /* Grape in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,6 +161,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38820AD12E2D510A0069D429 /* Grape in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,6 +191,7 @@
 				38A4645D2E2CB33800FD2689 /* macOS (App) */,
 				38A464622E2CB34200FD2689 /* iOS (Extension) */,
 				38A464652E2CB34400FD2689 /* macOS (Extension) */,
+				38820ACF2E2D510A0069D429 /* Frameworks */,
 				3814D0FE2E2B7CA200CCB9B3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -231,6 +236,13 @@
 			path = "Shared (Extension)";
 			sourceTree = SOURCE_ROOT;
 		};
+		38820ACF2E2D510A0069D429 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -254,6 +266,7 @@
 			);
 			name = "WikiMapper (iOS)";
 			packageProductDependencies = (
+				38820ACD2E2D50FB0069D429 /* Grape */,
 			);
 			productName = "WikiMapper (iOS)";
 			productReference = 3814D0FD2E2B7CA200CCB9B3 /* WikiMapper.app */;
@@ -278,6 +291,7 @@
 			);
 			name = "WikiMapper (macOS)";
 			packageProductDependencies = (
+				38820AD02E2D510A0069D429 /* Grape */,
 			);
 			productName = "WikiMapper (macOS)";
 			productReference = 3814D10F2E2B7CA200CCB9B3 /* WikiMapper.app */;
@@ -355,6 +369,9 @@
 			);
 			mainGroup = 3814D0E92E2B7CA000CCB9B3;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				38820ACC2E2D50FB0069D429 /* XCRemoteSwiftPackageReference "Grape" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 3814D0FE2E2B7CA200CCB9B3 /* Products */;
 			projectDirPath = "";
@@ -911,6 +928,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		38820ACC2E2D50FB0069D429 /* XCRemoteSwiftPackageReference "Grape" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/swiftgraphs/Grape";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		38820ACD2E2D50FB0069D429 /* Grape */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 38820ACC2E2D50FB0069D429 /* XCRemoteSwiftPackageReference "Grape" */;
+			productName = Grape;
+		};
+		38820AD02E2D510A0069D429 /* Grape */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 38820ACC2E2D50FB0069D429 /* XCRemoteSwiftPackageReference "Grape" */;
+			productName = Grape;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3814D0EA2E2B7CA000CCB9B3 /* Project object */;
 }
