@@ -291,16 +291,6 @@
         }
       }
     },
-    "Last updated: %@" : {
-      "localizations" : {
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "最后更新: %@"
-          }
-        }
-      }
-    },
     "Level %lld" : {
       "localizations" : {
         "zh-Hans" : {

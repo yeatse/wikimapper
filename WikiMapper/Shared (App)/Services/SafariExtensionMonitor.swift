@@ -82,44 +82,40 @@ struct SafariExtensionBanner: View {
     var action: () -> Void
     
     var body: some View {
-        if monitor.shouldShowBanner && !monitor.isExtensionEnabled {
-            bannerContent
-                .transition(.move(edge: .top).combined(with: .opacity))
-                .animation(.easeInOut(duration: 0.3), value: monitor.shouldShowBanner)
-        }
+        bannerContent
+            .transition(.move(edge: .top).combined(with: .opacity))
+            .animation(.easeInOut(duration: 0.3), value: monitor.shouldShowBanner)
     }
     
     private var bannerContent: some View {
-        GroupBox {
-            HStack {
-                Image(systemName: "exclamationmark.triangle.fill")
-                    .foregroundColor(.orange)
-                    .font(.title3)
+        HStack {
+            Image(systemName: "exclamationmark.triangle.fill")
+                .foregroundColor(.orange)
+                .font(.title3)
+            
+            VStack(alignment: .leading, spacing: 2) {
+                Text("Safari Extension Not Enabled")
+                    .font(.subheadline.weight(.medium))
                 
-                VStack(alignment: .leading, spacing: 2) {
-                    Text("Safari Extension Not Enabled")
-                        .font(.subheadline.weight(.medium))
-                    
-                    Text("Tap here to learn how to enable the extension to start tracking browsing history")
-                        .font(.caption)
-                        .foregroundColor(.secondary)
-                        .lineLimit(2)
-                }
-                
-                Spacer()
-                
-                Button {
-                    monitor.dismissBanner()
-                } label: {
-                    Image(systemName: "xmark")
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
-                }
+                Text("Tap here to learn how to enable the extension to start tracking browsing history")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+                    .lineLimit(2)
             }
-            .padding(EdgeInsets(top: 8, leading: 12, bottom: 8, trailing: 12))
-            .onTapGesture {
-                action()
+            
+            Spacer()
+            
+            Button {
+                monitor.dismissBanner()
+            } label: {
+                Image(systemName: "xmark")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
             }
+        }
+        .padding(EdgeInsets(top: 8, leading: 12, bottom: 8, trailing: 12))
+        .onTapGesture {
+            action()
         }
     }
 }
