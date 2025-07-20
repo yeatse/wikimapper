@@ -54,11 +54,19 @@ struct SessionsListView: View {
                             SessionRowView(session: session)
                         }
                     }
+                    .onDelete(perform: deleteSessions)
                 }
             }
         }
         .onChange(of: searchText) { _, newValue in
             performSearch(newValue)
+        }
+    }
+    
+    private func deleteSessions(at offsets: IndexSet) {
+        for index in offsets {
+            let session = sessions[index]
+            dataService.deleteSession(session.id)
         }
     }
     

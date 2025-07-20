@@ -137,6 +137,17 @@ class WikiMapperDataService {
         )
     }
     
+    /// Delete a specific session by ID
+    func deleteSession(_ sessionId: Double) {
+        let sessionKey = "\(keyPrefix)\(Int(sessionId))"
+        userDefaults.removeObject(forKey: sessionKey)
+        userDefaults.synchronize()
+        
+        Task {
+            await loadSessions()
+        }
+    }
+    
     /// Clear all sessions (for testing/reset purposes)
     func clearAllSessions() {
         let allKeys = userDefaults.dictionaryRepresentation().keys
