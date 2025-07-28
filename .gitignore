@@ -67,5 +67,4 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
-WikiMapper/Shared (Extension)/
-!WikiMapper/Shared (Extension)/SafariWebExtensionHandler.swift
+WikiMapper/WikiMapper Extension/Resources

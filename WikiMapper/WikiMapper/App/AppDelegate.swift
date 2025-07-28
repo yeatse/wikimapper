@@ -5,8 +5,7 @@
 //  Created by Yeatse on 2025/7/20.
 //
 
-import Foundation
-
+#if os(macOS)
 import Foundation
 import AppKit
 
@@ -15,3 +14,4 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         return true
     }
 }
+#endif

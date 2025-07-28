@@ -124,7 +124,7 @@ module.exports = function(grunt) {
         files: [
           {
             src: './manifest.safari.json',
-            dest: 'WikiMapper/Shared (Extension)/',
+            dest: 'WikiMapper/WikiMapper Extension/Resources/',
             filter: 'isFile',
             flatten: true,
             expand: true,
@@ -134,28 +134,28 @@ module.exports = function(grunt) {
           },
           {
             src: '<%= config.src %>/web/index.html',
-            dest: 'WikiMapper/Shared (Extension)/',
+            dest: 'WikiMapper/WikiMapper Extension/Resources/',
             filter: 'isFile',
             flatten: true,
             expand: true
           },
           {
             src: ['<%= config.src %>/resources/*', '!<%= config.src %>/resources/*.psd'],
-            dest: 'WikiMapper/Shared (Extension)/assets',
+            dest: 'WikiMapper/WikiMapper Extension/Resources/assets',
             filter: 'isFile',
             flatten: true,
             expand: true
           },
           {
             src: '<%= config.nodeModules %>/font-awesome/fonts/*',
-            dest: 'WikiMapper/Shared (Extension)/fonts/',
+            dest: 'WikiMapper/WikiMapper Extension/Resources/fonts/',
             filter: 'isFile',
             flatten: true,
             expand: true
           },
           {
             src: '<%= config.src %>/chrome/content-script.js',
-            dest: 'WikiMapper/Shared (Extension)/',
+            dest: 'WikiMapper/WikiMapper Extension/Resources/',
             filter: 'isFile',
             flatten: true,
             expand: true
@@ -195,13 +195,13 @@ module.exports = function(grunt) {
         options: {
           compress: false,
           sourceMap: true,
-          sourceMapFilename: 'WikiMapper/Shared (Extension)/styles/wikimapper.css.map',
+          sourceMapFilename: 'WikiMapper/WikiMapper Extension/styles/wikimapper.css.map',
           sourceMapURL: 'wikimapper.css.map',
-          sourceMapBasepath: 'WikiMapper/Shared (Extension)',
+          sourceMapBasepath: 'WikiMapper/WikiMapper Extension/Resources',
           javascriptEnabled: true
         },
         files: {
-          'WikiMapper/Shared (Extension)/styles/wikimapper.css': '<%= config.src %>/web/styles/*.less'
+          'WikiMapper/WikiMapper Extension/Resources/styles/wikimapper.css': '<%= config.src %>/web/styles/*.less'
         }
       }
     },
@@ -239,7 +239,7 @@ module.exports = function(grunt) {
         ],
         output: {
           ...require('./webpack.config.js').output,
-          path: require('path').resolve(__dirname, 'WikiMapper/Shared (Extension)')
+          path: require('path').resolve(__dirname, 'WikiMapper/WikiMapper Extension')
         }
       },
       dev: {

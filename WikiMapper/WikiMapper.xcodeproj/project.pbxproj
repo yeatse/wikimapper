@@ -8,31 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3814D11D2E2B7CA200CCB9B3 /* WikiMapper Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 3814D11C2E2B7CA200CCB9B3 /* WikiMapper Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		3814D1272E2B7CA200CCB9B3 /* WikiMapper Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 3814D1262E2B7CA200CCB9B3 /* WikiMapper Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		3814D1392E2B7CA200CCB9B3 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3814D0F82E2B7CA200CCB9B3 /* SafariWebExtensionHandler.swift */; };
-		3814D13A2E2B7CA200CCB9B3 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3814D0F82E2B7CA200CCB9B3 /* SafariWebExtensionHandler.swift */; };
-		3814D1572E2B7CA200CCB9B3 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 3814D14D2E2B7CA200CCB9B3 /* index.html */; };
-		3814D1582E2B7CA200CCB9B3 /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = 3814D14E2E2B7CA200CCB9B3 /* background.js */; };
-		3814D1592E2B7CA200CCB9B3 /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 3814D14F2E2B7CA200CCB9B3 /* assets */; };
-		3814D15A2E2B7CA200CCB9B3 /* styles in Resources */ = {isa = PBXBuildFile; fileRef = 3814D1502E2B7CA200CCB9B3 /* styles */; };
-		3814D15B2E2B7CA200CCB9B3 /* wikimapper.js.LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3814D1512E2B7CA200CCB9B3 /* wikimapper.js.LICENSE.txt */; };
-		3814D15C2E2B7CA200CCB9B3 /* wikimapper.js in Resources */ = {isa = PBXBuildFile; fileRef = 3814D1522E2B7CA200CCB9B3 /* wikimapper.js */; };
-		3814D15D2E2B7CA200CCB9B3 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 3814D1532E2B7CA200CCB9B3 /* manifest.json */; };
-		3814D15E2E2B7CA200CCB9B3 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 3814D1552E2B7CA200CCB9B3 /* fonts */; };
-		3814D15F2E2B7CA200CCB9B3 /* background.js.LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3814D1562E2B7CA200CCB9B3 /* background.js.LICENSE.txt */; };
-		3814D1602E2B7CA200CCB9B3 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 3814D14D2E2B7CA200CCB9B3 /* index.html */; };
-		3814D1612E2B7CA200CCB9B3 /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = 3814D14E2E2B7CA200CCB9B3 /* background.js */; };
-		3814D1622E2B7CA200CCB9B3 /* assets in Resources */ = {isa = PBXBuildFile; fileRef = 3814D14F2E2B7CA200CCB9B3 /* assets */; };
-		3814D1632E2B7CA200CCB9B3 /* styles in Resources */ = {isa = PBXBuildFile; fileRef = 3814D1502E2B7CA200CCB9B3 /* styles */; };
-		3814D1642E2B7CA200CCB9B3 /* wikimapper.js.LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3814D1512E2B7CA200CCB9B3 /* wikimapper.js.LICENSE.txt */; };
-		3814D1652E2B7CA200CCB9B3 /* wikimapper.js in Resources */ = {isa = PBXBuildFile; fileRef = 3814D1522E2B7CA200CCB9B3 /* wikimapper.js */; };
-		3814D1662E2B7CA200CCB9B3 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 3814D1532E2B7CA200CCB9B3 /* manifest.json */; };
-		3814D1672E2B7CA200CCB9B3 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 3814D1552E2B7CA200CCB9B3 /* fonts */; };
-		3814D1682E2B7CA200CCB9B3 /* background.js.LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3814D1562E2B7CA200CCB9B3 /* background.js.LICENSE.txt */; };
 		38820ACE2E2D50FB0069D429 /* Grape in Frameworks */ = {isa = PBXBuildFile; productRef = 38820ACD2E2D50FB0069D429 /* Grape */; };
-		38820AD12E2D510A0069D429 /* Grape in Frameworks */ = {isa = PBXBuildFile; productRef = 38820AD02E2D510A0069D429 /* Grape */; };
-		38A463122E2BD45800FD2689 /* content-script.js in Resources */ = {isa = PBXBuildFile; fileRef = 38A463112E2BD45800FD2689 /* content-script.js */; };
-		38A463132E2BD45800FD2689 /* content-script.js in Resources */ = {isa = PBXBuildFile; fileRef = 38A463112E2BD45800FD2689 /* content-script.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,13 +18,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 3814D11B2E2B7CA200CCB9B3;
 			remoteInfo = "WikiMapper Extension (iOS)";
-		};
-		3814D1282E2B7CA200CCB9B3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3814D0EA2E2B7CA000CCB9B3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3814D1252E2B7CA200CCB9B3;
-			remoteInfo = "WikiMapper Extension (macOS)";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -64,86 +33,133 @@
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3814D1472E2B7CA200CCB9B3 /* Embed Foundation Extensions */ = {
+		3871530F2E372EB60093D4C0 /* Copy Extension Assets */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = assets;
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			name = "Copy Extension Assets";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3871531B2E372EE60093D4C0 /* Copy Extension Fonts */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
+			dstPath = fonts;
+			dstSubfolderSpec = 7;
 			files = (
-				3814D1272E2B7CA200CCB9B3 /* WikiMapper Extension.appex in Embed Foundation Extensions */,
 			);
-			name = "Embed Foundation Extensions";
+			name = "Copy Extension Fonts";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		387153232E372EFB0093D4C0 /* Copy Extension Styles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = styles;
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			name = "Copy Extension Styles";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3814D0F82E2B7CA200CCB9B3 /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
 		3814D0FD2E2B7CA200CCB9B3 /* WikiMapper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WikiMapper.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		3814D10F2E2B7CA200CCB9B3 /* WikiMapper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WikiMapper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3814D11C2E2B7CA200CCB9B3 /* WikiMapper Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "WikiMapper Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3814D1262E2B7CA200CCB9B3 /* WikiMapper Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "WikiMapper Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3814D14C2E2B7CA200CCB9B3 /* wikimapper.js.map */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = wikimapper.js.map; sourceTree = "<group>"; };
-		3814D14D2E2B7CA200CCB9B3 /* index.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
-		3814D14E2E2B7CA200CCB9B3 /* background.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = background.js; sourceTree = "<group>"; };
-		3814D14F2E2B7CA200CCB9B3 /* assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = assets; sourceTree = "<group>"; };
-		3814D1502E2B7CA200CCB9B3 /* styles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = styles; sourceTree = "<group>"; };
-		3814D1512E2B7CA200CCB9B3 /* wikimapper.js.LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = wikimapper.js.LICENSE.txt; sourceTree = "<group>"; };
-		3814D1522E2B7CA200CCB9B3 /* wikimapper.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = wikimapper.js; sourceTree = "<group>"; };
-		3814D1532E2B7CA200CCB9B3 /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = manifest.json; sourceTree = "<group>"; };
-		3814D1542E2B7CA200CCB9B3 /* background.js.map */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = background.js.map; sourceTree = "<group>"; };
-		3814D1552E2B7CA200CCB9B3 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
-		3814D1562E2B7CA200CCB9B3 /* background.js.LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = background.js.LICENSE.txt; sourceTree = "<group>"; };
-		38A463112E2BD45800FD2689 /* content-script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = "content-script.js"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		38820A5B2E2D08090069D429 /* Exceptions for "macOS (App)" folder in "WikiMapper (macOS)" target */ = {
+		387151272E37260B0093D4C0 /* Exceptions for "WikiMapper Extension" folder in "WikiMapper Extension" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				AppDelegate.swift,
+				Resources/background.js,
+				Resources/background.js.LICENSE.txt,
+				"Resources/content-script.js",
+				Resources/index.html,
+				Resources/manifest.json,
+				Resources/wikimapper.js,
+				Resources/wikimapper.js.LICENSE.txt,
+				SafariWebExtensionHandler.swift,
 			);
-			target = 3814D10E2E2B7CA200CCB9B3 /* WikiMapper (macOS) */;
+			target = 3814D11B2E2B7CA200CCB9B3 /* WikiMapper Extension */;
 		};
-		38A464572E2CB33400FD2689 /* Exceptions for "iOS (App)" folder in "WikiMapper (iOS)" target */ = {
+		38A464572E2CB33400FD2689 /* Exceptions for "WikiMapper" folder in "WikiMapper" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
 			);
-			target = 3814D0FC2E2B7CA200CCB9B3 /* WikiMapper (iOS) */;
+			target = 3814D0FC2E2B7CA200CCB9B3 /* WikiMapper */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
+/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+		3871533B2E37300A0093D4C0 /* Exceptions for "WikiMapper Extension" folder in "Copy Bundle Resources" phase from "WikiMapper Extension" target */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = 3814D11A2E2B7CA200CCB9B3 /* Resources */;
+			membershipExceptions = (
+				Resources/background.js.map,
+				Resources/wikimapper.js.map,
+			);
+		};
+		387153462E37301C0093D4C0 /* Exceptions for "WikiMapper Extension" folder in "Copy Extension Assets" phase from "WikiMapper Extension" target */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = 3871530F2E372EB60093D4C0 /* Copy Extension Assets */;
+			membershipExceptions = (
+				"Resources/assets/wikimapper-16.png",
+				"Resources/assets/wikimapper-19.png",
+				"Resources/assets/wikimapper-38.png",
+				"Resources/assets/wikimapper-48.png",
+				"Resources/assets/wikimapper-128-with-alpha-border.png",
+				"Resources/assets/wikimapper-128.png",
+				"Resources/assets/wikimapper-banner-small.png",
+				"Resources/assets/wikimapper-promo-small.png",
+				"Resources/assets/wikimapper-screenshot-1.png",
+				"Resources/assets/wikimapper-screenshot-2.png",
+			);
+		};
+		3871534D2E37302E0093D4C0 /* Exceptions for "WikiMapper Extension" folder in "Copy Extension Fonts" phase from "WikiMapper Extension" target */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = 3871531B2E372EE60093D4C0 /* Copy Extension Fonts */;
+			membershipExceptions = (
+				"Resources/fonts/fontawesome-webfont.eot",
+				"Resources/fonts/fontawesome-webfont.svg",
+				"Resources/fonts/fontawesome-webfont.ttf",
+				"Resources/fonts/fontawesome-webfont.woff",
+				"Resources/fonts/fontawesome-webfont.woff2",
+				Resources/fonts/FontAwesome.otf,
+			);
+		};
+		387153502E37303C0093D4C0 /* Exceptions for "WikiMapper Extension" folder in "Copy Extension Styles" phase from "WikiMapper Extension" target */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = 387153232E372EFB0093D4C0 /* Copy Extension Styles */;
+			membershipExceptions = (
+				Resources/styles/wikimapper.css,
+				Resources/styles/wikimapper.css.map,
+			);
+		};
+/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		38A4641B2E2C960700FD2689 /* Shared (App) */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "Shared (App)";
-			sourceTree = "<group>";
-		};
-		38A464512E2CB33400FD2689 /* iOS (App) */ = {
+		38A464512E2CB33400FD2689 /* WikiMapper */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				38A464572E2CB33400FD2689 /* Exceptions for "iOS (App)" folder in "WikiMapper (iOS)" target */,
+				38A464572E2CB33400FD2689 /* Exceptions for "WikiMapper" folder in "WikiMapper" target */,
 			);
-			path = "iOS (App)";
+			path = WikiMapper;
 			sourceTree = "<group>";
 		};
-		38A4645D2E2CB33800FD2689 /* macOS (App) */ = {
+		38A464622E2CB34200FD2689 /* WikiMapper Extension */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				38820A5B2E2D08090069D429 /* Exceptions for "macOS (App)" folder in "WikiMapper (macOS)" target */,
+				387151272E37260B0093D4C0 /* Exceptions for "WikiMapper Extension" folder in "WikiMapper Extension" target */,
+				3871533B2E37300A0093D4C0 /* Exceptions for "WikiMapper Extension" folder in "Copy Bundle Resources" phase from "WikiMapper Extension" target */,
+				387153462E37301C0093D4C0 /* Exceptions for "WikiMapper Extension" folder in "Copy Extension Assets" phase from "WikiMapper Extension" target */,
+				3871534D2E37302E0093D4C0 /* Exceptions for "WikiMapper Extension" folder in "Copy Extension Fonts" phase from "WikiMapper Extension" target */,
+				387153502E37303C0093D4C0 /* Exceptions for "WikiMapper Extension" folder in "Copy Extension Styles" phase from "WikiMapper Extension" target */,
 			);
-			path = "macOS (App)";
-			sourceTree = "<group>";
-		};
-		38A464622E2CB34200FD2689 /* iOS (Extension) */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "iOS (Extension)";
-			sourceTree = "<group>";
-		};
-		38A464652E2CB34400FD2689 /* macOS (Extension) */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "macOS (Extension)";
+			path = "WikiMapper Extension";
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -157,22 +173,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3814D10C2E2B7CA200CCB9B3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				38820AD12E2D510A0069D429 /* Grape in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		3814D1192E2B7CA200CCB9B3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3814D1232E2B7CA200CCB9B3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -185,56 +186,21 @@
 		3814D0E92E2B7CA000CCB9B3 = {
 			isa = PBXGroup;
 			children = (
-				38A4641B2E2C960700FD2689 /* Shared (App) */,
-				3814D0F72E2B7CA200CCB9B3 /* Shared (Extension) */,
-				38A464512E2CB33400FD2689 /* iOS (App) */,
-				38A4645D2E2CB33800FD2689 /* macOS (App) */,
-				38A464622E2CB34200FD2689 /* iOS (Extension) */,
-				38A464652E2CB34400FD2689 /* macOS (Extension) */,
+				38A464512E2CB33400FD2689 /* WikiMapper */,
+				38A464622E2CB34200FD2689 /* WikiMapper Extension */,
 				38820ACF2E2D510A0069D429 /* Frameworks */,
 				3814D0FE2E2B7CA200CCB9B3 /* Products */,
 			);
-			sourceTree = "<group>";
-		};
-		3814D0F72E2B7CA200CCB9B3 /* Shared (Extension) */ = {
-			isa = PBXGroup;
-			children = (
-				3814D14B2E2B7CA200CCB9B3 /* Resources */,
-				3814D0F82E2B7CA200CCB9B3 /* SafariWebExtensionHandler.swift */,
-			);
-			path = "Shared (Extension)";
 			sourceTree = "<group>";
 		};
 		3814D0FE2E2B7CA200CCB9B3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				3814D0FD2E2B7CA200CCB9B3 /* WikiMapper.app */,
-				3814D10F2E2B7CA200CCB9B3 /* WikiMapper.app */,
 				3814D11C2E2B7CA200CCB9B3 /* WikiMapper Extension.appex */,
-				3814D1262E2B7CA200CCB9B3 /* WikiMapper Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
-		};
-		3814D14B2E2B7CA200CCB9B3 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				3814D14C2E2B7CA200CCB9B3 /* wikimapper.js.map */,
-				3814D14D2E2B7CA200CCB9B3 /* index.html */,
-				3814D14E2E2B7CA200CCB9B3 /* background.js */,
-				3814D14F2E2B7CA200CCB9B3 /* assets */,
-				3814D1502E2B7CA200CCB9B3 /* styles */,
-				3814D1512E2B7CA200CCB9B3 /* wikimapper.js.LICENSE.txt */,
-				3814D1522E2B7CA200CCB9B3 /* wikimapper.js */,
-				38A463112E2BD45800FD2689 /* content-script.js */,
-				3814D1532E2B7CA200CCB9B3 /* manifest.json */,
-				3814D1542E2B7CA200CCB9B3 /* background.js.map */,
-				3814D1552E2B7CA200CCB9B3 /* fonts */,
-				3814D1562E2B7CA200CCB9B3 /* background.js.LICENSE.txt */,
-			);
-			name = Resources;
-			path = "Shared (Extension)";
-			sourceTree = SOURCE_ROOT;
 		};
 		38820ACF2E2D510A0069D429 /* Frameworks */ = {
 			isa = PBXGroup;
@@ -246,9 +212,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3814D0FC2E2B7CA200CCB9B3 /* WikiMapper (iOS) */ = {
+		3814D0FC2E2B7CA200CCB9B3 /* WikiMapper */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3814D1412E2B7CA200CCB9B3 /* Build configuration list for PBXNativeTarget "WikiMapper (iOS)" */;
+			buildConfigurationList = 3814D1412E2B7CA200CCB9B3 /* Build configuration list for PBXNativeTarget "WikiMapper" */;
 			buildPhases = (
 				3814D0F92E2B7CA200CCB9B3 /* Sources */,
 				3814D0FA2E2B7CA200CCB9B3 /* Frameworks */,
@@ -261,10 +227,9 @@
 				3814D11F2E2B7CA200CCB9B3 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				38A4641B2E2C960700FD2689 /* Shared (App) */,
-				38A464512E2CB33400FD2689 /* iOS (App) */,
+				38A464512E2CB33400FD2689 /* WikiMapper */,
 			);
-			name = "WikiMapper (iOS)";
+			name = WikiMapper;
 			packageProductDependencies = (
 				38820ACD2E2D50FB0069D429 /* Grape */,
 			);
@@ -272,67 +237,26 @@
 			productReference = 3814D0FD2E2B7CA200CCB9B3 /* WikiMapper.app */;
 			productType = "com.apple.product-type.application";
 		};
-		3814D10E2E2B7CA200CCB9B3 /* WikiMapper (macOS) */ = {
+		3814D11B2E2B7CA200CCB9B3 /* WikiMapper Extension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3814D1482E2B7CA200CCB9B3 /* Build configuration list for PBXNativeTarget "WikiMapper (macOS)" */;
-			buildPhases = (
-				3814D10B2E2B7CA200CCB9B3 /* Sources */,
-				3814D10C2E2B7CA200CCB9B3 /* Frameworks */,
-				3814D10D2E2B7CA200CCB9B3 /* Resources */,
-				3814D1472E2B7CA200CCB9B3 /* Embed Foundation Extensions */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				3814D1292E2B7CA200CCB9B3 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				38A4641B2E2C960700FD2689 /* Shared (App) */,
-			);
-			name = "WikiMapper (macOS)";
-			packageProductDependencies = (
-				38820AD02E2D510A0069D429 /* Grape */,
-			);
-			productName = "WikiMapper (macOS)";
-			productReference = 3814D10F2E2B7CA200CCB9B3 /* WikiMapper.app */;
-			productType = "com.apple.product-type.application";
-		};
-		3814D11B2E2B7CA200CCB9B3 /* WikiMapper Extension (iOS) */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3814D13D2E2B7CA200CCB9B3 /* Build configuration list for PBXNativeTarget "WikiMapper Extension (iOS)" */;
+			buildConfigurationList = 3814D13D2E2B7CA200CCB9B3 /* Build configuration list for PBXNativeTarget "WikiMapper Extension" */;
 			buildPhases = (
 				3814D1182E2B7CA200CCB9B3 /* Sources */,
 				3814D1192E2B7CA200CCB9B3 /* Frameworks */,
 				3814D11A2E2B7CA200CCB9B3 /* Resources */,
+				3871530F2E372EB60093D4C0 /* Copy Extension Assets */,
+				3871531B2E372EE60093D4C0 /* Copy Extension Fonts */,
+				387153232E372EFB0093D4C0 /* Copy Extension Styles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "WikiMapper Extension (iOS)";
+			name = "WikiMapper Extension";
 			packageProductDependencies = (
 			);
 			productName = "WikiMapper Extension (iOS)";
 			productReference = 3814D11C2E2B7CA200CCB9B3 /* WikiMapper Extension.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
-		3814D1252E2B7CA200CCB9B3 /* WikiMapper Extension (macOS) */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3814D1442E2B7CA200CCB9B3 /* Build configuration list for PBXNativeTarget "WikiMapper Extension (macOS)" */;
-			buildPhases = (
-				3814D1222E2B7CA200CCB9B3 /* Sources */,
-				3814D1232E2B7CA200CCB9B3 /* Frameworks */,
-				3814D1242E2B7CA200CCB9B3 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "WikiMapper Extension (macOS)";
-			packageProductDependencies = (
-			);
-			productName = "WikiMapper Extension (macOS)";
-			productReference = 3814D1262E2B7CA200CCB9B3 /* WikiMapper Extension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -348,13 +272,7 @@
 					3814D0FC2E2B7CA200CCB9B3 = {
 						CreatedOnToolsVersion = 16.4;
 					};
-					3814D10E2E2B7CA200CCB9B3 = {
-						CreatedOnToolsVersion = 16.4;
-					};
 					3814D11B2E2B7CA200CCB9B3 = {
-						CreatedOnToolsVersion = 16.4;
-					};
-					3814D1252E2B7CA200CCB9B3 = {
 						CreatedOnToolsVersion = 16.4;
 					};
 				};
@@ -377,10 +295,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3814D0FC2E2B7CA200CCB9B3 /* WikiMapper (iOS) */,
-				3814D10E2E2B7CA200CCB9B3 /* WikiMapper (macOS) */,
-				3814D11B2E2B7CA200CCB9B3 /* WikiMapper Extension (iOS) */,
-				3814D1252E2B7CA200CCB9B3 /* WikiMapper Extension (macOS) */,
+				3814D0FC2E2B7CA200CCB9B3 /* WikiMapper */,
+				3814D11B2E2B7CA200CCB9B3 /* WikiMapper Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -393,44 +309,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3814D10D2E2B7CA200CCB9B3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		3814D11A2E2B7CA200CCB9B3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3814D1642E2B7CA200CCB9B3 /* wikimapper.js.LICENSE.txt in Resources */,
-				3814D1662E2B7CA200CCB9B3 /* manifest.json in Resources */,
-				3814D1612E2B7CA200CCB9B3 /* background.js in Resources */,
-				3814D1622E2B7CA200CCB9B3 /* assets in Resources */,
-				3814D1632E2B7CA200CCB9B3 /* styles in Resources */,
-				38A463122E2BD45800FD2689 /* content-script.js in Resources */,
-				3814D1602E2B7CA200CCB9B3 /* index.html in Resources */,
-				3814D1652E2B7CA200CCB9B3 /* wikimapper.js in Resources */,
-				3814D1682E2B7CA200CCB9B3 /* background.js.LICENSE.txt in Resources */,
-				3814D1672E2B7CA200CCB9B3 /* fonts in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3814D1242E2B7CA200CCB9B3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3814D15B2E2B7CA200CCB9B3 /* wikimapper.js.LICENSE.txt in Resources */,
-				3814D15D2E2B7CA200CCB9B3 /* manifest.json in Resources */,
-				3814D1582E2B7CA200CCB9B3 /* background.js in Resources */,
-				3814D1592E2B7CA200CCB9B3 /* assets in Resources */,
-				3814D15A2E2B7CA200CCB9B3 /* styles in Resources */,
-				38A463132E2BD45800FD2689 /* content-script.js in Resources */,
-				3814D1572E2B7CA200CCB9B3 /* index.html in Resources */,
-				3814D15C2E2B7CA200CCB9B3 /* wikimapper.js in Resources */,
-				3814D15F2E2B7CA200CCB9B3 /* background.js.LICENSE.txt in Resources */,
-				3814D15E2E2B7CA200CCB9B3 /* fonts in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,26 +326,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3814D10B2E2B7CA200CCB9B3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		3814D1182E2B7CA200CCB9B3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3814D1392E2B7CA200CCB9B3 /* SafariWebExtensionHandler.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3814D1222E2B7CA200CCB9B3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3814D13A2E2B7CA200CCB9B3 /* SafariWebExtensionHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,13 +338,8 @@
 /* Begin PBXTargetDependency section */
 		3814D11F2E2B7CA200CCB9B3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3814D11B2E2B7CA200CCB9B3 /* WikiMapper Extension (iOS) */;
+			target = 3814D11B2E2B7CA200CCB9B3 /* WikiMapper Extension */;
 			targetProxy = 3814D11E2E2B7CA200CCB9B3 /* PBXContainerItemProxy */;
-		};
-		3814D1292E2B7CA200CCB9B3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 3814D1252E2B7CA200CCB9B3 /* WikiMapper Extension (macOS) */;
-			targetProxy = 3814D1282E2B7CA200CCB9B3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -604,12 +465,12 @@
 		3814D13E2E2B7CA200CCB9B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = "iOS (Extension)/WikiMapper Extension.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "WikiMapper Extension/WikiMapper Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = L6JP27B8YR;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
+				INFOPLIST_FILE = "WikiMapper Extension/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "WikiMapper Extension";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
@@ -618,6 +479,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -625,8 +487,11 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ptmccarthy.WikiMapper.Extension;
 				PRODUCT_NAME = "WikiMapper Extension";
+				REGISTER_APP_GROUPS = YES;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -635,12 +500,12 @@
 		3814D13F2E2B7CA200CCB9B3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = "iOS (Extension)/WikiMapper Extension.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "WikiMapper Extension/WikiMapper Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = L6JP27B8YR;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
+				INFOPLIST_FILE = "WikiMapper Extension/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "WikiMapper Extension";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
@@ -649,6 +514,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -656,8 +522,11 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ptmccarthy.WikiMapper.Extension;
 				PRODUCT_NAME = "WikiMapper Extension";
+				REGISTER_APP_GROUPS = YES;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -669,12 +538,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "iOS (App)/WikiMapper.entitlements";
+				CODE_SIGN_ENTITLEMENTS = WikiMapper/WikiMapper.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = L6JP27B8YR;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "iOS (App)/Info.plist";
+				INFOPLIST_FILE = WikiMapper/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = WikiMapper;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
@@ -687,6 +556,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -696,7 +566,11 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ptmccarthy.WikiMapper;
 				PRODUCT_NAME = WikiMapper;
+				REGISTER_APP_GROUPS = YES;
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -707,12 +581,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "iOS (App)/WikiMapper.entitlements";
+				CODE_SIGN_ENTITLEMENTS = WikiMapper/WikiMapper.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = L6JP27B8YR;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "iOS (App)/Info.plist";
+				INFOPLIST_FILE = WikiMapper/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = WikiMapper;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
@@ -725,6 +599,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -734,148 +609,14 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ptmccarthy.WikiMapper;
 				PRODUCT_NAME = WikiMapper;
+				REGISTER_APP_GROUPS = YES;
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		3814D1452E2B7CA200CCB9B3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = "macOS (Extension)/WikiMapper.entitlements";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = L6JP27B8YR;
-				ENABLE_HARDENED_RUNTIME = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "WikiMapper Extension";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@executable_path/../../../../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 15.0;
-				MARKETING_VERSION = 1.0;
-				OTHER_LDFLAGS = (
-					"-framework",
-					SafariServices,
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ptmccarthy.WikiMapper.Extension;
-				PRODUCT_NAME = "WikiMapper Extension";
-				REGISTER_APP_GROUPS = YES;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-			};
-			name = Debug;
-		};
-		3814D1462E2B7CA200CCB9B3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = "macOS (Extension)/WikiMapper.entitlements";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = L6JP27B8YR;
-				ENABLE_HARDENED_RUNTIME = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "WikiMapper Extension";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@executable_path/../../../../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 15.0;
-				MARKETING_VERSION = 1.0;
-				OTHER_LDFLAGS = (
-					"-framework",
-					SafariServices,
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ptmccarthy.WikiMapper.Extension;
-				PRODUCT_NAME = "WikiMapper Extension";
-				REGISTER_APP_GROUPS = YES;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-			};
-			name = Release;
-		};
-		3814D1492E2B7CA200CCB9B3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "macOS (App)/WikiMapper.entitlements";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = L6JP27B8YR;
-				ENABLE_HARDENED_RUNTIME = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "macOS (App)/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = WikiMapper;
-				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
-				INFOPLIST_KEY_NSMainStoryboardFile = Main;
-				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 15.0;
-				MARKETING_VERSION = 1.0;
-				OTHER_LDFLAGS = (
-					"-framework",
-					SafariServices,
-					"-framework",
-					WebKit,
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ptmccarthy.WikiMapper;
-				PRODUCT_NAME = WikiMapper;
-				REGISTER_APP_GROUPS = YES;
-				SDKROOT = macosx;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-			};
-			name = Debug;
-		};
-		3814D14A2E2B7CA200CCB9B3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "macOS (App)/WikiMapper.entitlements";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = L6JP27B8YR;
-				ENABLE_HARDENED_RUNTIME = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "macOS (App)/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = WikiMapper;
-				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
-				INFOPLIST_KEY_NSMainStoryboardFile = Main;
-				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 15.0;
-				MARKETING_VERSION = 1.0;
-				OTHER_LDFLAGS = (
-					"-framework",
-					SafariServices,
-					"-framework",
-					WebKit,
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ptmccarthy.WikiMapper;
-				PRODUCT_NAME = WikiMapper;
-				REGISTER_APP_GROUPS = YES;
-				SDKROOT = macosx;
-				SWIFT_EMIT_LOC_STRINGS = YES;
 			};
 			name = Release;
 		};
@@ -891,7 +632,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3814D13D2E2B7CA200CCB9B3 /* Build configuration list for PBXNativeTarget "WikiMapper Extension (iOS)" */ = {
+		3814D13D2E2B7CA200CCB9B3 /* Build configuration list for PBXNativeTarget "WikiMapper Extension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3814D13E2E2B7CA200CCB9B3 /* Debug */,
@@ -900,29 +641,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3814D1412E2B7CA200CCB9B3 /* Build configuration list for PBXNativeTarget "WikiMapper (iOS)" */ = {
+		3814D1412E2B7CA200CCB9B3 /* Build configuration list for PBXNativeTarget "WikiMapper" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3814D1422E2B7CA200CCB9B3 /* Debug */,
 				3814D1432E2B7CA200CCB9B3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3814D1442E2B7CA200CCB9B3 /* Build configuration list for PBXNativeTarget "WikiMapper Extension (macOS)" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3814D1452E2B7CA200CCB9B3 /* Debug */,
-				3814D1462E2B7CA200CCB9B3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3814D1482E2B7CA200CCB9B3 /* Build configuration list for PBXNativeTarget "WikiMapper (macOS)" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3814D1492E2B7CA200CCB9B3 /* Debug */,
-				3814D14A2E2B7CA200CCB9B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -942,11 +665,6 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		38820ACD2E2D50FB0069D429 /* Grape */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 38820ACC2E2D50FB0069D429 /* XCRemoteSwiftPackageReference "Grape" */;
-			productName = Grape;
-		};
-		38820AD02E2D510A0069D429 /* Grape */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 38820ACC2E2D50FB0069D429 /* XCRemoteSwiftPackageReference "Grape" */;
 			productName = Grape;

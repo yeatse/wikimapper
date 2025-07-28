@@ -4,12 +4,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-WikiMapper is a browser extension for Chrome and Firefox that tracks and visualizes Wikipedia browsing sessions. It creates a historical tree showing how users navigate through Wikipedia articles. The extension runs in the background and stores all data locally.
+WikiMapper is a cross-platform browser extension and native application that tracks and visualizes Wikipedia browsing sessions. It supports Chrome, Firefox, and Safari browsers, with dedicated macOS and iOS applications for Safari. The extension creates a historical tree showing how users navigate through Wikipedia articles and stores all data locally.
 
 ## Essential Commands
 
 ### Build and Development
-- `npm run build` - Build for Chrome, Firefox, and Safari (creates `/dist/chrome`, `/dist/firefox`, and Safari extension in `WikiMapper/Shared (Extension)/`)
+- `npm run build` - Build for Chrome, Firefox, and Safari (creates `/dist/chrome`, `/dist/firefox`, and Safari extension in `WikiMapper/WikiMapper Extension/`)
 - `npx grunt build:chrome` - Build only Chrome extension
 - `npx grunt build:firefox` - Build only Firefox extension  
 - `npx grunt build:safari` - Build only Safari extension
@@ -17,8 +17,8 @@ WikiMapper is a browser extension for Chrome and Firefox that tracks and visuali
 - `npm run test` - Run Jest tests
 - `npm run test:watch` - Run tests in watch mode
 - `npm run test:coverage` - Run tests with coverage report
-- `cd WikiMapper && xcodebuild -scheme "WikiMapper (macOS)" -configuration Debug build` - Compile macOS version
-- `cd WikiMapper && xcodebuild -scheme "WikiMapper (iOS)" -configuration Debug build` - Compile iOS version
+- `cd WikiMapper && xcodebuild -scheme WikiMapper -configuration Debug -sdk macosx build` - Compile macOS version
+- `cd WikiMapper && xcodebuild -scheme WikiMapper -configuration Debug -sdk iphoneos build` - Compile iOS version
 
 ### Installation for Testing
 1. `npm install`
@@ -34,6 +34,8 @@ WikiMapper is a browser extension for Chrome and Firefox that tracks and visuali
 - **Web App** (`src/web/`): Backbone.js frontend for visualization
 - **Session Handler** (`src/chrome/session-handler.js`): Manages browsing sessions
 - **Storage** (`src/chrome/storage.js`): Local data persistence
+- **Safari Storage** (`src/chrome/safari-storage.js`): Safari-specific storage handling
+- **Native App** (`WikiMapper/WikiMapper/`): SwiftUI application with graph visualization
 
 ### Frontend Structure (Backbone.js MVC)
 - Models in `src/web/js/models/`
@@ -50,14 +52,16 @@ Uses Grunt with these key tasks:
 - Template compilation (Handlebars)
 
 ### Browser Compatibility
-- Separate manifests: `manifest.chrome.json` and `manifest.firefox.json`
+- Separate manifests: `manifest.chrome.json`, `manifest.firefox.json`, and `manifest.safari.json`
 - Uses `webextension-polyfill` for cross-browser API compatibility
 - Supports Manifest v3 standard
+- Safari integration via native app wrapper with shared UserDefaults
 
 ### Dependencies
-- **Frontend**: Backbone.js, jQuery, D3.js v3.5.17, Day.js
-- **Build**: Webpack 5, Grunt, Babel, Less
-- **Testing**: Jest with jsdom environment
+- **Frontend**: Backbone.js, jQuery, D3.js v3.5.17, Day.js, Font Awesome 4.7.0
+- **Build**: Webpack 5, Grunt, Babel, Less, Handlebars
+- **Testing**: Jest with jsdom environment, babel-jest for ES6+ transpilation
+- **Native**: SwiftUI, Safari Services framework, Grape library for graph visualization
 
 ## Testing
 - Tests located in `/test/` directory
@@ -71,3 +75,12 @@ Uses Grunt with these key tasks:
 - `babel.config.js` - ES6+ transpilation
 - `jest.config.js` - Test configuration
 - `.eslintrc.json` - Code quality rules
+- `WikiMapper/WikiMapper.xcodeproj` - Xcode project for native macOS/iOS apps
+- `/test/mocks/` - WebExtension API mocks for testing
+
+## Project Structure Notes
+- Browser extension source in `src/chrome/` and `src/web/`
+- Native Safari application in `WikiMapper/WikiMapper/` (SwiftUI)
+- Safari web extension in `WikiMapper/WikiMapper Extension/`
+- Build outputs to `/dist/chrome`, `/dist/firefox`, and integrated with Xcode project
+- Dual architecture: web-based extension + native app wrapper for cross-platform compatibility
