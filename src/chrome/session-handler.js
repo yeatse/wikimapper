@@ -191,6 +191,33 @@ const SessionHandler = {
   },
 
   /**
+   * Find a page in the current tab's navigation history by URL
+   * This supports multi-level back navigation by traversing up the parent chain
+   * @param {object} currentPage - Current page in tab status
+   * @param {string} targetUrl - URL to find in navigation history
+   * @returns {object|null} - Found page object or null
+   */
+  findPageInHistory: function(currentPage, targetUrl) {
+    if (!currentPage) return null;
+
+    // Check current page
+    if (currentPage.data?.url === targetUrl) {
+      return currentPage;
+    }
+
+    // Traverse up the parent chain
+    let page = currentPage;
+    while (page.parent) {
+      page = page.parent;
+      if (page.data?.url === targetUrl) {
+        return page;
+      }
+    }
+
+    return null;
+  },
+
+  /**
    * Forward/Back button events are unfortunately the same event trigger in the
    * Chrome webNavigation API, so we have to do some deduction to figure out which
    * type each qualifying event is.
@@ -200,32 +227,42 @@ const SessionHandler = {
     let commitData = {};
     const tabStatus = await this.getTabStatus();
 
-    // back button
-    if (details.url === tabStatus[details.tabId].parent.data.url) {
+    // back button - check for multi-level back navigation
+    const backPage = this.findPageInHistory(tabStatus[details.tabId], details.url);
+    if (backPage && backPage !== tabStatus[details.tabId]) {
       console.log('back button');
-      const backPage = tabStatus[details.tabId].parent;
-
-      commitData = backPage;
+      commitData = { ...backPage };
       commitData.forwardId = tabStatus[details.tabId].id;
       commitData.forwardChildren = tabStatus[details.tabId].children;
 
-      tabStatus[details.tabId] = backPage;
+      tabStatus[details.tabId] = commitData;
       await this.updateTabStatus(tabStatus);
     } // eslint-disable-line brace-style
 
     // forward button
     else {
       console.log('forward button');
-      commitData.id = tabStatus[details.tabId].forwardId;
-      commitData.parent = tabStatus[details.tabId];
-      commitData.children = tabStatus[details.tabId].forwardChildren;
-      commitData.data = {
-        tabId: commitData.tabId,
-        date: commitData.timeStamp,
-        url: commitData.url,
-        parentId: commitData.parent.id,
-        sessionId: commitData.parent.data.sessionId
+      const currentTab = tabStatus[details.tabId];
+
+      // Check if we have valid forward data
+      if (!currentTab?.forwardId) {
+        return;
+      }
+
+      commitData = {
+        ...details,
+        id: currentTab.forwardId,
+        parent: currentTab,
+        children: currentTab.forwardChildren || [],
+        data: {
+          tabId: details.tabId,
+          date: details.timeStamp,
+          url: details.url,
+          parentId: currentTab.id,
+          sessionId: currentTab.data.sessionId
+        }
       };
+
       tabStatus[details.tabId] = commitData;
       await this.updateTabStatus(tabStatus);
     }

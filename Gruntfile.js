@@ -195,7 +195,7 @@ module.exports = function(grunt) {
         options: {
           compress: false,
           sourceMap: true,
-          sourceMapFilename: 'WikiMapper/WikiMapper Extension/styles/wikimapper.css.map',
+          sourceMapFilename: 'WikiMapper/WikiMapper Extension/Resources/styles/wikimapper.css.map',
           sourceMapURL: 'wikimapper.css.map',
           sourceMapBasepath: 'WikiMapper/WikiMapper Extension/Resources',
           javascriptEnabled: true
@@ -239,7 +239,7 @@ module.exports = function(grunt) {
         ],
         output: {
           ...require('./webpack.config.js').output,
-          path: require('path').resolve(__dirname, 'WikiMapper/WikiMapper Extension')
+          path: require('path').resolve(__dirname, 'WikiMapper/WikiMapper Extension/Resources')
         }
       },
       dev: {

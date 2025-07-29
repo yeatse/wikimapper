@@ -18,15 +18,7 @@ let hasTransitionSupport = false;
  * Detect Safari and feature support
  */
 async function detectBrowserCapabilities() {
-  try {
-    // Safari >= 17 supports getBrowserInfo
-    const info = await browser.runtime.getBrowserInfo();
-    isSafari = info?.name === 'Safari';
-  } catch (_) {
-    // Fallback: Feature detection for older Safari versions
-    isSafari = typeof browser?.history?.getVisits !== 'function';
-  }
-
+  isSafari = navigator.userAgent.includes('Safari');
   hasTransitionSupport = !isSafari;
   console.log('WikiMapper: Browser detection', { isSafari, hasTransitionSupport });
 }
@@ -59,13 +51,13 @@ async function processNavigationWithInfo(details, navInfo) {
 /**
  * Consume pending navigation after timeout (Safari fallback)
  */
-async function consumePendingNavigation(tabId, defaultType = 'typed') {
+async function consumePendingNavigation(tabId, url, defaultType = 'typed') {
   const pendingNav = pendingMessageFromWebNavigation.get(tabId);
   if (pendingNav) {
     console.log('WikiMapper: Consuming pending navigation after timeout', {
       tabId,
       defaultType,
-      url: pendingNav.details.url
+      url
     });
 
     clearTimeout(pendingNav.timeoutId);
@@ -111,11 +103,6 @@ function processContentScriptMessage(tabId, messageType, messageValue, url) {
       [propertyName]: messageValue,
       timestamp: Date.now()
     });
-
-    // Auto-cleanup after 500ms
-    setTimeout(() => {
-      pendingMessageFromContentScript.delete(tabId);
-    }, 500);
   }
 }
 
@@ -186,7 +173,7 @@ async function eventFilter(details) {
 
         // Set up timeout to process as 'typed' if no message arrives
         const timeoutId = setTimeout(() => {
-          consumePendingNavigation(details.tabId, 'typed');
+          consumePendingNavigation(details.tabId, details.url, 'typed');
         }, 500);
 
         pendingMessageFromWebNavigation.set(details.tabId, {
@@ -213,16 +200,56 @@ try {
   console.error('WikiMapper: Failed to add webNavigation listener:', error);
 }
 
-// Clean up caches when tabs are closed (Safari timing coordination)
-browser.tabs.onRemoved.addListener((tabId) => {
-  if (isSafari) {
-    const pendingNav = pendingMessageFromWebNavigation.get(tabId);
-    if (pendingNav) {
-      clearTimeout(pendingNav.timeoutId);
-      pendingMessageFromWebNavigation.delete(tabId);
-    }
+/**
+ * Clean up cached messages for a specific tab and URL
+ */
+function cleanupCacheForTabUrl(tabId, url, reason = 'unknown') {
+  if (!isSafari) return;
+
+  // Clean up pendingMessageFromWebNavigation
+  const pendingNav = pendingMessageFromWebNavigation.get(tabId);
+  if (pendingNav) {
+    clearTimeout(pendingNav.timeoutId);
+    pendingMessageFromWebNavigation.delete(tabId);
+  }
+
+  // Clean up pendingMessageFromContentScript
+  if (pendingMessageFromContentScript.has(tabId)) {
     pendingMessageFromContentScript.delete(tabId);
-    console.log('WikiMapper: Cleaned up caches for closed tab', { tabId });
+  }
+
+  console.log('WikiMapper: Cleaned up cache', { tabId, url, reason });
+}
+
+/**
+ * Clean up all cached messages for a specific tab
+ */
+function cleanupCacheForTab(tabId, reason = 'tab_closed') {
+  if (!isSafari) return;
+
+  // Clean up entries for this tabId from both maps
+  const pendingNav = pendingMessageFromWebNavigation.get(tabId);
+  if (pendingNav) {
+    clearTimeout(pendingNav.timeoutId);
+    pendingMessageFromWebNavigation.delete(tabId);
+  }
+
+  if (pendingMessageFromContentScript.has(tabId)) {
+    pendingMessageFromContentScript.delete(tabId);
+  }
+
+  console.log('WikiMapper: Cleaned up all caches for tab', { tabId, reason });
+}
+
+// Clean up caches when tabs are closed
+browser.tabs.onRemoved.addListener((tabId) => {
+  cleanupCacheForTab(tabId, 'tab_closed');
+});
+
+// Clean up caches when navigating away from Wikipedia/Wiktionary pages
+browser.webNavigation.onBeforeNavigate.addListener((details) => {
+  if (details.frameId === 0) { // Only main frame navigations
+    cleanupCacheForTabUrl(details.tabId, details.url, 'navigation_away');
   }
 });
 
